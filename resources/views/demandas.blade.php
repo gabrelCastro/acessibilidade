@@ -14,7 +14,7 @@
                 <form action="/logout" method="POST" class="logout_form">
                     @csrf
                     {{$usuario->name}}
-                    <a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();"><span class="material-symbols-outlined">logout</span>Sair</a>
+                    <a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();"><span class="material-symbols-outlined" data-cy="sair">logout</span>Sair</a>
                 </form>
             @endauth
     </div>
@@ -25,7 +25,7 @@
         @endcomponent
     @endforeach
 
-    <button class="cadastrar_demanda" onclick="window.location.href='/demanda-cadastro'">Cadastrar Demanda</button>
+    <button class="cadastrar_demanda" onclick="window.location.href='/demanda-cadastro'" data-cy="cadastrar_demanda">Cadastrar Demanda</button>
    
 
 </body>
