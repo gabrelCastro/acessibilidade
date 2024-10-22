@@ -1,66 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center" > Acessibilidade-Cypress <h1>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-## About Laravel
+Este projeto consiste em um site que realiza avaliações de acessibilidade em outras páginas da web. Além disso, inclui testes End-to-End utilizando *Cypress* para garantir a funcionalidade e a usabilidade do sistema.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* [Como rodar o projeto localmente](#-como-rodar-o-projeto-localmente)
+* [Como realizar os testes atraves do Cypress](#como-realizar-os-testes-atraves-do-cypress)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# 💻 Como rodar o projeto localmente
+Primeiramente, é preciso instalar os seguintes softwares em sua máquina. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [NodeJs](https://nodejs.org/en)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Xampp](https://www.apachefriends.org/pt_br/index.html) 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [Composer](https://getcomposer.org/download/ ) 
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- [MySQL workbench](https://www.mysql.com/products/workbench/ ) 
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+*Todos os softwares podem ser instalados da forma padrão como é recomendado, ou também seguindo suas próprias preferências.* 
 
-## Contributing
+ 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Alteração necessária no xampp 
 
-## Code of Conduct
+Após a instalação do mesmo, será necessário abrir a sua pasta de instalação e procurar a pasta “php” (possivelmente no endereço “C:\xampp\php”). Procure o arquivo também chamado “php” do tipo “parâmetro de configuração” e o abra com algum programa de editor de texto (como bloco de notas). 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ache o texto “;extension=zip” e exclua o “;” que precede o “extension”. 
 
-## Security Vulnerabilities
+ 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Xampp 
 
-## License
+Abra o xampp e dê “start” no “MySQL”. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ 
+
+### MySQL Workbench
+
+Abra o workbench, crie uma conexão e execute o código “create database laravel” 
+
+ 
+
+## 📚 Com o projeto clonado... 
+
+1. No terminal aberto no projeto dê o comando `composer i` para a instalação do composer; 
+
+2. Adicione o arquivo “.env” na pasta do projeto (perceba que existe a chance do “.” sumir, se atente em renomear o arquivo); 
+
+3. Abra o arquivo “.env”, editando a linha que possui “DB_PASSWORD", apagando a senha que vem como padrão (admin), deixando espaço vazio após o “=”; 
+
+4. Cole o arquivo “2024_05_01_220147_create_erros_table” na pasta “...database\migrations”; 
+
+5. Execute o código  `php artisan migrate`, no qual dará um erro quando for realizada a ação no arquivo recém adicionado; 
+
+6. Exclua o arquivo “2024_05_01_220147_create_erros_table”, o qual foi adicionado; 
+
+7. Execute novamente o `php artisan migrate`; 
+
+8. Execute os seguintes códigos em sequência: 
+
+   -`npm i`
+
+   -`npm run dev`
+
+   -`php artisan serve`
+
+9. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
+
+# Como realizar os testes atraves do cypress
+## 🛠️ Preparando o ambiente para os testes
+
+Antes de rodar os testes, certifique-se de que o Node.js está instalado em sua máquina:
+
+- [NodeJs](https://nodejs.org/en)
+
+*Todos os softwares podem ser instalados da forma padrão como é recomendado, ou também seguindo suas próprias preferências.* 
+
+## 🔍 Abrindo e utilizando o Cypress
+
+Para abrir o Cypress e executar os testes: 
+1. Abra o terminal no diretório do projeto;
+2. Dê o comando: `npx cypress open` para executar o cypress; 
+3. Abrirá uma janela com duas opções, escolha "E2E Testing", que é o tipo de teste realizado;
+4. Selecione o navegador de sua preferência;
+5. Terão alguns testes dentro da pasta "*cypress\e2e*", selecione o que deseja executar;
+6. Após abrir o teste desejado, ele automaticamente irá realizá-lo, a partir disso você pode:
+   - Repetir o teste clicando no botão de "Reload";
+   - Editar o código do teste clicando no nome da spec(teste) onde aparece a opção "open in IDL";
+   - Ver e analisar cada passo do teste, tanto os sucessos quanto as falhas.
+
+> Lembre se, sempre que quiser realizar os testes, terá que seguir esses passos :smile:
