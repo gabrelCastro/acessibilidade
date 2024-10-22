@@ -85,7 +85,7 @@ Antes de rodar os testes, certifique-se de que o Node.js está instalado em sua 
 
 ## 🔍 Abrindo e utilizando o Cypress
 
-Para abrir o Cypress e executar os testes: 
+Para rodar os testes End-to-End usando o Cypress, siga os passos abaixo:
 1. Abra o terminal no diretório do projeto;
 2. Dê o comando: `npx cypress open` para executar o cypress; 
 3. Abrirá uma janela com duas opções, escolha "E2E Testing", que é o tipo de teste realizado;
