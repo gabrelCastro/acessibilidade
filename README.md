@@ -56,15 +56,9 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 3. Abra o arquivo “.env”, editando a linha que possui “DB_PASSWORD", apagando a senha que vem como padrão (admin), deixando espaço vazio após o “=”; 
 
-4. Cole o arquivo “2024_05_01_220147_create_erros_table” na pasta “...database\migrations”; 
+4. Execute o código  `php artisan migrate`;
 
-5. Execute o código  `php artisan migrate`, no qual dará um erro quando for realizada a ação no arquivo recém adicionado; 
-
-6. Exclua o arquivo “2024_05_01_220147_create_erros_table”, o qual foi adicionado; 
-
-7. Execute novamente o `php artisan migrate`; 
-
-8. Execute os seguintes códigos em sequência: 
+5. Execute os seguintes códigos em sequência: 
 
    -`npm i`
 
@@ -72,7 +66,7 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
    -`php artisan serve`
 
-9. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
+6. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
 
 # Como realizar os testes atraves do cypress
 ## 🛠️ Preparando o ambiente para os testes
