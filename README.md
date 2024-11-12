@@ -50,7 +50,7 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 1. No terminal aberto no projeto dê o comando `composer i` para a instalação do composer; 
 
-2. Crie o arquivo `.env` a partir do `.env.example`. Copie o conteúdo de `.env.example` e [configure as variáveis de acordo o seu ambiente local](#arquivo-env-e-configuração).
+2. No projeto, você encontrará um arquivo de exemplo chamado .env.example. Antes de executar o projeto, você deve criar um arquivo .env com base no exemplo e configurar suas variáveis. Certifique-se de gerar uma chave de aplicação com: `php artisan key:generate`
 
 3. Execute o código  `php artisan migrate`;
 
@@ -64,11 +64,6 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 5. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
 
-## Arquivo .env e configuração
-
-No projeto, você encontrará um arquivo de exemplo chamado .env.example. Antes de executar o projeto, você deve criar um arquivo .env com base no exemplo e configurar suas variáveis.
-
-Certifique-se de gerar uma chave de aplicação com: `php artisan key:generate`
 
 # Como realizar os testes atraves do cypress
 ## 🛠️ Preparando o ambiente para os testes
