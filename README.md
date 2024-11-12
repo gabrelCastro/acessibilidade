@@ -50,13 +50,11 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 1. No terminal aberto no projeto dê o comando `composer i` para a instalação do composer; 
 
-2. Crie o arquivo `.env` a partir do `.env.example`. Copie o conteúdo de `.env.example` e [configure as variáveis de acordo o seu ambiente local](#arquivo-.env-e-configuração).
+2. Crie o arquivo `.env` a partir do `.env.example`. Copie o conteúdo de `.env.example` e [configure as variáveis de acordo o seu ambiente local](#arquivo-env-e-configuração).
 
-3. Abra o arquivo “.env”, editando a linha que possui “DB_PASSWORD", apagando a senha que vem como padrão (admin), deixando espaço vazio após o “=”; 
+3. Execute o código  `php artisan migrate`;
 
-4. Execute o código  `php artisan migrate`;
-
-5. Execute os seguintes códigos em sequência: 
+4. Execute os seguintes códigos em sequência: 
 
    -`npm i`
 
@@ -64,7 +62,7 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
    -`php artisan serve`
 
-6. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
+5. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
 
 ## Arquivo .env e configuração
 
