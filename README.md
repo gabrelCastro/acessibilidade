@@ -64,7 +64,7 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 5. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
 
-## 🗂️ Arquivo .env e configuração
+## Arquivo .env e configuração
 
 No projeto, você encontrará um arquivo de exemplo chamado .env.example. Antes de executar o projeto, você deve criar um arquivo .env com base no exemplo e configurar suas variáveis.
 
