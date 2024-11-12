@@ -7,6 +7,6 @@
             @csrf
             <button class="voltar_demanda"> <span class="material-symbols-outlined">logout</span>Voltar para demandas</button>
         </form>
-        <button class="finalizar_demanda">Finalizar Demanda</button>
+        <button class="finalizar_demanda" data-cy="botao_finalizar">Finalizar Demanda</button>
     </div>
 </div>

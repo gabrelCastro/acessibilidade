@@ -30,9 +30,7 @@ Primeiramente, é preciso instalar os seguintes softwares em sua máquina.
 
 ## Alteração necessária no xampp 
 
-Após a instalação do mesmo, será necessário abrir a sua pasta de instalação e procurar a pasta “php” (possivelmente no endereço “C:\xampp\php”). Procure o arquivo também chamado “php” do tipo “parâmetro de configuração” e o abra com algum programa de editor de texto (como bloco de notas). 
-
-Ache o texto “;extension=zip” e exclua o “;” que precede o “extension”. 
+Após a instalação, acesse a pasta de instalação do XAMPP e abra a pasta `php` (por padrão, em `C:\xampp\php`). Edite o arquivo `php.ini` com um editor de texto e descomente a linha contendo `;extension=zip`, removendo o `;` no início.
 
  
 
@@ -52,19 +50,13 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 1. No terminal aberto no projeto dê o comando `composer i` para a instalação do composer; 
 
-2. Adicione o arquivo “.env” na pasta do projeto (perceba que existe a chance do “.” sumir, se atente em renomear o arquivo); 
+2. Crie o arquivo `.env` a partir do `.env.example`. Copie o conteúdo de `.env.example` e [configure as variáveis de acordo o seu ambiente local](#arquivo-.env-e-configuração).
 
 3. Abra o arquivo “.env”, editando a linha que possui “DB_PASSWORD", apagando a senha que vem como padrão (admin), deixando espaço vazio após o “=”; 
 
-4. Cole o arquivo “2024_05_01_220147_create_erros_table” na pasta “...database\migrations”; 
+4. Execute o código  `php artisan migrate`;
 
-5. Execute o código  `php artisan migrate`, no qual dará um erro quando for realizada a ação no arquivo recém adicionado; 
-
-6. Exclua o arquivo “2024_05_01_220147_create_erros_table”, o qual foi adicionado; 
-
-7. Execute novamente o `php artisan migrate`; 
-
-8. Execute os seguintes códigos em sequência: 
+5. Execute os seguintes códigos em sequência: 
 
    -`npm i`
 
@@ -72,7 +64,13 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
    -`php artisan serve`
 
-9. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
+6. Agora abra o MySQL Workbench e execute o código que está no arquivo “Inserir itens no Banco”, basta copiar o texto.
+
+## Arquivo .env e configuração
+
+No projeto, você encontrará um arquivo de exemplo chamado .env.example. Antes de executar o projeto, você deve criar um arquivo .env com base no exemplo e configurar suas variáveis.
+
+Certifique-se de gerar uma chave de aplicação com: `php artisan key:generate`
 
 # Como realizar os testes atraves do cypress
 ## 🛠️ Preparando o ambiente para os testes

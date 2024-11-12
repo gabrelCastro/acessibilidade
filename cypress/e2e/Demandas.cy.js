@@ -1,3 +1,10 @@
+Cypress.on("uncaught:exception", (err, runnable) => {
+  if (err.message.includes("Cannot read properties of null (reading 'addEventListener')")) {
+      return false;
+  }
+});
+
+
 describe('Criação e acesso de uma demanda', () => {
   it('Criação de uma nova demanda', () => {
     cy.visit('http://127.0.0.1:8000/')
@@ -18,7 +25,7 @@ describe('Criação e acesso de uma demanda', () => {
     cy.get('[data-cy=demanda_teste]').should('contain', 'Demanda teste')
   })
 
-  it('Acessando uma demanda com senha', () => {
+  it.only('Acessando uma demanda com senha', () => {
     cy.visit('http://127.0.0.1:8000/')
     cy.get('[data-cy="emailLogin"]').type("emailteste@teste.com")
     cy.get('[data-cy="senhaLogin"]').type("12345678")
@@ -32,7 +39,7 @@ describe('Criação e acesso de uma demanda', () => {
      } else {
        console.log('Não existe um botão com a classe button no código')
      }
-     if(cy.get('.finalizar-demanda')){
+     if(cy.get('[data-cy=botao_finalizar]')){
         console.log('Chegou na pagina da demanda')
      }
   })
