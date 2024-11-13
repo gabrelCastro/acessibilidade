@@ -50,7 +50,7 @@ Abra o workbench, crie uma conexão e execute o código “create database larav
 
 1. No terminal aberto no projeto dê o comando `composer i` para a instalação do composer; 
 
-2. No projeto, você encontrará um arquivo de exemplo chamado `.env.example`. Crie um novo arquivo chamado `.env` na raiz do projeto. Copie o conteúdo do arquivo `.env.example` e cole no novo arquivo `.env`. Certifique-se de gerar uma chave de aplicação com: `php artisan key:generate`
+2. No projeto, você encontrará um arquivo de exemplo chamado `.env.example`. Crie um novo arquivo chamado `.env` na raiz do projeto. Copie o conteúdo do arquivo `.env.example` e cole no novo arquivo `.env`. Após criar o arquivo .env, execute o seguinte comando para gerar uma chave de aplicação única para o Laravel:`php artisan key:generate`
 
 3. Execute o código  `php artisan migrate`;
 
