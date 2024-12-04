@@ -97,3 +97,36 @@ document.getElementById('meu_formulario').addEventListener('submit', function(ev
         errorMessage.style.display = 'none';
     }
 });
+
+const guideliness = document.getElementById("guideliness");
+guideliness.addEventListener('click',()=>{
+    if(guideliness.checked){
+        document.getElementById('criarPaginas').style.display = "flex";
+    }
+    else{
+        if(document.getElementById("testeComUsuario").checked)
+            document.getElementById('criarPaginas').style.display = "none";
+        else{
+            alert("Pelo menos um campo deve estar marcado")
+            guideliness.checked = "checked";
+        }
+    }
+
+})
+
+const testeComUsuario = document.getElementById("testeComUsuario");
+testeComUsuario.addEventListener('click',()=>{
+    if(testeComUsuario.checked){
+        document.getElementById('camposTU').style.display = "flex";
+    }
+    else{
+        if(document.getElementById("guideliness").checked){
+            document.getElementById('camposTU').style.display = "none";
+        }
+        else{
+            alert("Pelo menos um campo deve estar marcado")
+            testeComUsuario.checked = "checked";
+        }
+        
+    }
+})

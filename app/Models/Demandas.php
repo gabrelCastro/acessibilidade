@@ -10,7 +10,7 @@ class Demandas extends Model
     use HasFactory;
 
     
-    protected $table = 'demanda';
+    protected $table = 'avaliacao';
     
     public function erros(){
         return $this->hasMany(Erro::class);

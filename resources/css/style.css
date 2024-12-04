@@ -1,0 +1,351 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 130px;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: rgb(36, 36, 36);
+    border: 3px solid blue;
+}
+
+header h1{
+    color: white;
+    font-size: 50px;
+}
+
+.opcoesTeste{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.botaoSessoes{
+    background-color: blue;
+    color: white;
+    height: 70px;
+    width: 30%;
+    border-radius: 10px;
+    font-size: 110%;
+    font-weight: 600;
+    border: 2px solid white;
+}
+
+.botaoSalvar{
+    background-color: rgb(0, 207, 0);
+    color: white;
+    height: 70px;
+    width: 30%;
+    border-radius: 10px;
+    font-size: 110%;
+    font-weight: 600;
+    border: 2px solid white;
+}
+
+.botaoSalvar:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.botaoRemover{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 75, 75);
+    color: white;
+    font-size: 30px;
+    border: 2px solid white;
+}
+
+
+
+.informacoesTeste{
+    width: 80%;
+    background-color: rgb(43, 43, 43);
+    height: 400px;
+    margin-top: 70px;
+    border-radius: 9px;
+    box-shadow: 10px 10px 10px rgb(74, 74, 74);
+}
+
+.formTeste{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
+
+.formTeste input{
+    margin-top: 10px;
+    width: 70%;
+    height: 50px;
+    margin-bottom: 80px;
+    border: 3px solid rgb(93, 0, 255);
+    border-radius: 8px;
+}
+
+.tarefas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 100px;
+    text-align: start;
+    color: rgb(93, 0, 255);;
+
+}
+
+.tarefas h1{
+    justify-self: start;
+}
+
+.quadrado{
+    width: 100%;
+    height: 10px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.tarefa{
+    display: flex;
+    font-size: 150%;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 100%;
+    height: 80px;
+    border: 3px solid gray;
+    border-radius: 7px;
+    margin-bottom: 30px;
+}
+
+.adicionar{
+    width: 60px; /* Tamanho da imagem da lixeira */
+    height: 60px;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: transform 0.2s; /* Animação ao passar o mouse */
+    margin-bottom: 20px;
+}
+
+
+
+.lixeira,.lixeiraJaExiste {
+    width: 60px; /* Tamanho da imagem da lixeira */
+    height: 60px;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: transform 0.2s; /* Animação ao passar o mouse */
+}
+
+.lapis{
+    width: 60px; /* Tamanho da imagem da lixeira */
+    height: 60px;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: transform 0.2s; /* Animação ao passar o mouse */
+
+}
+
+.lapis:hover {
+    transform: scale(1.2); /* Aumenta o ícone levemente ao passar o mouse */
+}
+
+.lixeira:hover,.lixeiraJaExiste:hover {
+    transform: scale(1.2); /* Aumenta o ícone levemente ao passar o mouse */
+}
+
+.visualizarTarefa,.visualizarTarefaJaCriada{
+    gap: 20px;
+    align-items: center;
+    display: flex;
+}
+
+
+  
+  /* Fundo do modal */
+  .modal {
+    display: none; /* Ocultar por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Conteúdo do modal */
+  .modal-conteudo {
+    border: 8px solid blue;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 40%;
+    height: 500px;
+  }
+  
+  /* Botão fechar */
+  .fechar,.fecharAdicionar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-top: -35px;
+    margin-left: 50%;
+  }
+
+.modal h3{
+    text-align: start;
+    margin-top: 50px;
+
+}
+
+  @media (max-width: 1100px) {
+
+    header{
+        flex-direction: column;
+        height: 200px;
+        justify-content: space-around;
+    }
+
+    .opcoesTeste{
+        width: 70%;
+    }
+
+    .modal-conteudo{
+        width: 90%;
+    }
+    
+}
+
+
+#editor{
+    height: 100px;
+}
+
+.switch {
+    position: relative;
+    display:block;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 34px;
+  }
+
+.switchVer {
+    pointer-events: none;
+    position: relative;
+    display:inline-block;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Esconde o input checkbox */
+  .switch input {
+    display: none;
+  }
+
+
+  
+  /* Slider - aparência do botão */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px; /* Borda arredondada */
+  }
+  
+  /* Círculo interno */
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%; /* Círculo perfeito */
+  }
+  
+  /* Estado ligado (quando checkbox está marcado) */
+  input:checked + .slider {
+    background-color: #4caf50;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(26px); /* Move o círculo para a direita */
+  }
+
+  .astarefas{
+    display:block;
+  }
+
+  .inputCriar{
+    resize: none;
+    border: 2px solid rgb(53, 0, 128);
+    height: 50px;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+#conteudoCriar{
+    height: 700px;
+}
+
+.salvarAdicionar{
+    display: block;
+    height: 50px;
+    background-color: #4caf50;
+    color: white;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hora{
+    display: none;
+    height: 40px;
+    width: 90px;
+    padding: 5px;
+}
+
+.informacoesTempo{
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.naosalvo{
+    color: red;
+}

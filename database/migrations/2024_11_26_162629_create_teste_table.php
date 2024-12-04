@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('erros', function (Blueprint $table) {
-            $table->id();
-            $table->string('pgs');
-            $table->unsignedBigInteger('id_item');
-            $table->foreign('id_item')->references('id')->on('itens');
-            $table->integer('em_cfmd');
-            $table->longText('descricao');
-            $table->timestamps();
+        Schema::create('teste', function (Blueprint $table) {
             $table->unsignedBigInteger('avaliacao_id');
             $table->foreign('avaliacao_id')->references('id')->on('avaliacao')->onDelete('cascade');
+            $table->string("titulo");
+            $table->string("dispositivo");
+            $table->timestamps();
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('erros');
+        Schema::dropIfExists('teste');
     }
 };

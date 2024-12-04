@@ -23,7 +23,7 @@ class AvaliacaoController extends Controller
 
         $demandaId = $request->cookie('demanda_authenticated');
 
-        $erros =  Erro::where('demanda_id', $demandaId)->get();
+        $erros =  Erro::where('avaliacao_id', $demandaId)->get();
         $final = array();
 
         foreach($erros as $erro){
@@ -75,7 +75,7 @@ class AvaliacaoController extends Controller
         $erro->id_item = $id;
         $erro->em_cfmd = $opcao;
         $demanda = $request->input('id_demanda');
-        $erro->demanda_id = $demanda;
+        $erro->avaliacao_id = $demanda;
         if($erro->em_cfmd == '2'){
             $erro->descricao = $descricao;
             $paginas = "";
@@ -118,7 +118,7 @@ class AvaliacaoController extends Controller
 
        $demandaId = $request->cookie('demanda_authenticated');
         
-        $erro = Erro::where('id_item','=',$id_item)->where('demanda_id', $demandaId)->first();
+        $erro = Erro::where('id_item','=',$id_item)->where('avaliacao_id', $demandaId)->first();
 
         //Pegando o array de imagens que estão relacionadas ao erro
 
@@ -149,7 +149,7 @@ class AvaliacaoController extends Controller
 
         //Capturando o erro, utiliza-se o first por ser certeza de só existir um erro por item
 
-        $erro = Erro::where('id_item','=',$request->input('id'))->where('demanda_id', $demandaId)->first();
+        $erro = Erro::where('id_item','=',$request->input('id'))->where('avaliacao_id', $demandaId)->first();
 
 
         // Verificando se as opções estão nulas

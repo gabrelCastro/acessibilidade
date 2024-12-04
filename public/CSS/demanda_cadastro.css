@@ -79,8 +79,8 @@ form{
     font-weight: 600;
     font-size: 15px;
     color: blue;
-    width: 30%;
     margin-top: 10px;
+    width: 55%;
 }
 
 .paginas{
@@ -198,5 +198,21 @@ form{
    height: 40px;
    font-weight: 700;
    
+
+}
+
+.labeltesteUsuario{
+    text-align: start;
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 60%;
+}
+
+@media (max-width: 800px) {
+    .formulario{
+        width: 90%;
+    }
+
 
 }

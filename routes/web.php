@@ -17,6 +17,8 @@ use App\Http\Controllers\DemandaGController;
 */
 
 Use App\Http\Controllers\RelatorioController;
+use App\Http\Controllers\TarefaController;
+use App\Http\Controllers\TesteController;
 
 Route::match(['get', 'post'],'/erro', [RelatorioController::class, 'index'])->name('index.mostrar')->middleware('auth');
 
@@ -36,7 +38,6 @@ Route::middleware([
 
     Route::put('/erro-update',[AvaliacaoController::class,'update'])->name('erro.update');
 
-
     Route::get('/',[DemandaController::class,'index'])->name('demanda.mostrar');
 
     Route::post('/demandas',[DemandaController::class,'armazenar'])->name('demanda.senha');
@@ -44,5 +45,12 @@ Route::middleware([
     Route::get('/demanda-cadastro',[DemandaGController::class,'index'])->name('demanda-cadastro');
 
     Route::post('/demanda-cadastro',[DemandaGController::class,'store'])->name('demanda-armazenar');
+
+    Route::get('/testeUsuario', [TesteController::class,'index'])->name('teste');
+
+    Route::post('/cadastrar-tarefa',[TarefaController::class,"store"])->name('cadastrarTarefa');
+
+    Route::post('/excluir-tarefa',[TarefaController::class,"delete"])->name('excluirTarefa');
+
 });
 

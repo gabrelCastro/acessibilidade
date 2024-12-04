@@ -20,21 +20,25 @@ class DemandaController extends Controller
     public function armazenar(Request $request){
 
         $demanda = Demandas::find($request->input('id'));
-
+        
         // $teste = $demanda->passoword === $request->input('password');
-
+        
 
         if($demanda->password == $request->input('password')){
 
             Cookie::queue('demanda_authenticated', $demanda->id, 240);
 
             // Retorne uma view de sucesso
-            return redirect()->route('index.mostrar');
+            if($request->input("testes") == "true")
+                return redirect()->route('teste',['demanda_Id'=>$request->id]);
+            else{
+                return redirect()->route('index.mostrar');
+            }
         }
         else{
             return redirect()->route('demanda.mostrar');
         }
-
+        
     }
 
     

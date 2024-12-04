@@ -24,7 +24,7 @@ class RelatorioController extends Controller
         if($demanda){
             
             $usuario = Auth::user();
-            $erros =  Erro::where('demanda_id', $demandaId)->get();
+            $erros =  Erro::where('avaliacao_id', $demandaId)->get();
             $search = $request->search;
             $opcaoEscolhida = $request->diretriz;
             $tipoEscolhido = $request->tipo;
