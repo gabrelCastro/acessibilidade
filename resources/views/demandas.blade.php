@@ -31,7 +31,7 @@
         <div class="modal-content">
         <span class="fecharAdicionar" id="closeModalBtn"><img src="/img/fechar.png" class = "fechar"alt="fechar visualização"></span>
             <h2>EM QUAL DOS MÉTODOS DE AVALIAÇÃO VOCÊ DESEJA ENTRAR</h2>
-            <div class="modal-buttons">
+            <div class="modal-buttons" id="botoesdeentrar">
                 <input type="hidden" id="QualDemanda">
                 <button id="BtnTeste">TESTES COM USUÁRIO</button>
                 <button id="BtnGuide">GUIDELINESS</button>
@@ -42,7 +42,6 @@
     
     <script>
     const routes = {
-        
         guidelines: "{{ route('demanda.senha') }}" 
     };
 </script>

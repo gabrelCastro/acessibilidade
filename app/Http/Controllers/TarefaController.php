@@ -34,6 +34,31 @@ class TarefaController extends Controller
         return redirect()->route('teste');
 
     }
+
+    public function update(Request $request){
+
+        $dados = json_decode($request->enviarTarefa);
+
+        $tarefa = Tarefa::find($dados->id);
+        
+        //dd($dados->tempo);
+
+        if($dados->tempo == ""){
+            $dados->tempo = 0;
+        }
+
+        $tarefa->titulo = $dados->titulo;
+        $tarefa->descricao =$dados->descricao;
+        $tarefa->tempo = $dados->tempo;
+
+
+        $tarefa->save();
+        
+
+        return redirect()->route('teste');
+
+
+    }
     
 
 }

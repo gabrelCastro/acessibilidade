@@ -3,12 +3,15 @@ const modalAdicionar = document.getElementById('modalCriarTarefa'); // Modal de 
 const modalCriar = document.getElementById('botaoNovaTarefa');  // Botão de Abrir modal de Criação de nova Tarefa
 const fecharModal = document.querySelector('.fechar');
 const fecharModalAdicionar = document.querySelector('.fecharAdicionar');
+const fecharModalEditar = document.querySelector('.fecharEditar');
 const interruptor = document.getElementById('interruptor');
 const interruptorCadastrar = document.getElementById('interruptorCadastrar');
+const interruptorEditar = document.getElementById('interruptorEditar');
 const modalConteudo = document.getElementById('conteudoTarefaVisualizar');
 const conteudoCriar = document.getElementById('conteudoCriar');
 const adicionarTarefa = document.getElementById("botaoAdicionarTarefa");
 const tarefas = document.querySelector('.tarefas');
+const modalEditar = document.getElementById('modalEditarTarefa');
 
 if(localStorage.getItem("adicionar") == null){
   localStorage.setItem("adicionar",`{"${variaveis.id}":[]}`);
@@ -19,10 +22,24 @@ else if(JSON.parse(localStorage.getItem("adicionar"))[variaveis.id] === undefine
   localStorage.setItem('adicionar',JSON.stringify(modificar));
 }
 
+if(localStorage.getItem("editar") == null){
+  localStorage.setItem("editar",`{"${variaveis.id}":[]}`);
+}
+else if(JSON.parse(localStorage.getItem("editar"))[variaveis.id] === undefined){
+  const modificar = JSON.parse(localStorage.getItem("editar"));
+  modificar[variaveis.id] = [];
+  localStorage.setItem('editar',JSON.stringify(modificar));
+}
+
 
 const tarefasAdicionadas = JSON.parse(localStorage.getItem("adicionar"))[variaveis.id];
+const tarefasEditadas = JSON.parse(localStorage.getItem("editar"))[variaveis.id];
 const botaoSalvar = document.getElementById("botaodeSalvar");
 const quill = new Quill('#editor', {
+  theme: 'snow'
+});
+
+const quillEditar = new Quill('#editorEditar', {
   theme: 'snow'
 });
 
@@ -33,7 +50,7 @@ if(null !== tarefasAdicionadas && tarefasAdicionadas.length > 0){
     novaDiv.className = "tarefa";
     novaDiv.innerHTML = `
             <div class="visualizarTarefa" id="abrirModal" data-id=${i}>
-                <img src="img/olho.png" alt="visulizar tarefa" class="lapis">
+                <img src="img/olho.png" alt="visulizar tarefa" class="olho">
                 <p>${tarefasAdicionadas[i].titulo}  <p class = "naosalvo">(Não salva)<\p></p>
             </div>
             <div class="iconesTarefa">
@@ -51,7 +68,7 @@ if(null !== tarefasAdicionadas && tarefasAdicionadas.length > 0){
       let tarefa = tarefasAteAgora[Number(teste.getAttribute('data-id'))];
       document.getElementById("tituloModal").innerText = tarefa.titulo;
       document.getElementById("descricaoModal").innerHTML = tarefa.descricao;
-      if(tarefa.tempo != ""){
+      if(tarefa.tempo != 0){
         interruptor.checked = true;
         document.getElementById("textoTempo").innerText="SIM";
         const paragrafo = document.getElementById('tempoEstimado');
@@ -84,6 +101,155 @@ if(null !== tarefasAdicionadas && tarefasAdicionadas.length > 0){
   );
 
 }
+
+
+function adicionarEventoDeEditar(){
+
+  return function(){
+  const tarefas = JSON.parse(localStorage.getItem("adicionar"))
+  const tarefasAteAgora = tarefas[variaveis.id];
+  let tarefa = tarefasAteAgora[Number(document.getElementById("botaoEditarTarefa").getAttribute('data-id'))];
+
+
+  const titulo = document.getElementById('tituloEditar').value;
+  const descricao = quillEditar.getSemanticHTML();
+  let tempo = document.getElementById('horaEditar').value;
+
+    if(tempo == ""){
+      tempo = 0;
+    }
+
+  tarefa.titulo = titulo;
+  tarefa.descricao = descricao;
+  tarefa.tempo = tempo;
+  
+  tarefasAteAgora[Number(document.getElementById("botaoEditarTarefa").getAttribute('data-id'))] = tarefa;
+
+  tarefas[variaveis.id] = tarefasAteAgora;
+
+  localStorage.setItem("adicionar",JSON.stringify(tarefas));
+
+  document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditar);
+
+  location.reload() 
+
+  
+  }}
+
+function adicionarEventoDeEditarJaNoBanco(tarefaAchada){
+
+  return function(){
+  tarefaAchada.titulo =  document.getElementById("tituloEditar").value;
+  tarefaAchada.tempo = document.querySelector('#horaEditar').value
+  tarefaAchada.descricao = quillEditar.getSemanticHTML();
+
+  const formulario = document.createElement('form');
+  formulario.method = 'POST';
+  formulario.action = variaveis.rotaEditar;
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const tokenInput = document.createElement('input');
+  tokenInput.type = 'hidden';
+  tokenInput.name = '_token';
+  tokenInput.value = csrfToken;
+  formulario.appendChild(tokenInput);
+
+    const metodoPut = document.createElement('input');
+    metodoPut.type = 'hidden';
+    metodoPut.name = '_method';
+    metodoPut.value = 'PUT';
+    formulario.appendChild(metodoPut);
+
+ 
+    const input = document.createElement('input');
+    input.type = 'hidden'; // Campos escondidos
+    input.name = "enviarTarefa"; // Nome do campo 
+    input.id = "enviarTarefa";
+    input.value = JSON.stringify(tarefaAchada);
+    formulario.appendChild(input);
+  
+    document.body.appendChild(formulario);
+ 
+    
+    formulario.submit();
+    
+    document.body.removeChild(formulario);
+
+    document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditarJaNoBanco);}
+}
+
+
+
+
+
+const editarTarefas = document.querySelectorAll('.lapis');
+editarTarefas.forEach((teste) => {
+  teste.addEventListener('click', () => {
+    const tarefasAteAgora = JSON.parse(localStorage.getItem("adicionar"))[variaveis.id];
+    let tarefa = tarefasAteAgora[Number(teste.getAttribute('data-id'))];
+    document.getElementById("tituloEditar").value = tarefa.titulo;
+    quillEditar.clipboard.dangerouslyPasteHTML(tarefa.descricao)
+    const entrada = document.querySelector('#horaEditar');
+    if(tarefa.tempo != 0){
+      document.querySelector('#horaEditar').value = tarefa.tempo;
+      interruptorEditar.checked = true;
+      entrada.style.display = 'block'
+  }
+  else{
+    interruptorEditar.checked = false;
+    entrada.style.display = 'none'
+  }
+
+    document.getElementById("botaoEditarTarefa").setAttribute('data-id',teste.getAttribute('data-id'));
+    modalEditar.style.display = 'flex'; // Exibe o modal
+  
+    const botaoEditar = document.getElementById("botaoEditarTarefa");
+
+    document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefa));
+    botaoEditar.addEventListener('click',adicionarEventoDeEditar());
+  
+  });
+}
+);
+
+const editarTarefasJaNoBanco = document.querySelectorAll('.lapisJaNoBanco');
+editarTarefasJaNoBanco.forEach((teste) => {
+  teste.addEventListener('click', () => {
+    const idTarefa = teste.getAttribute('data-id');
+    let tarefaAchada;
+
+
+    variaveis.tarefas.forEach(element => {
+      if(element.id == idTarefa){
+        tarefaAchada = element;
+      }
+    });
+
+    document.getElementById("tituloEditar").value = tarefaAchada.titulo;
+    quillEditar.clipboard.dangerouslyPasteHTML(tarefaAchada.descricao)
+    const entrada = document.querySelector('#horaEditar');
+    if(tarefaAchada.tempo != ""){
+      document.querySelector('#horaEditar').value = tarefaAchada.tempo;
+      interruptorEditar.checked = true;
+      entrada.style.display = 'block'
+
+  }
+  else{
+    interruptorEditar.checked = false;
+    entrada.style.display = 'none'
+  }
+
+    document.getElementById("botaoEditarTarefa").setAttribute('data-id',teste.getAttribute('data-id'));
+    modalEditar.style.display = 'flex'; // Exibe o modal
+
+    document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditar());
+    document.getElementById("botaoEditarTarefa").addEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefaAchada));
+
+
+  })
+}
+);
+
+
 
 
 const antigatarefas = document.querySelectorAll('.visualizarTarefaJaCriada');
@@ -165,6 +331,9 @@ fecharModalAdicionar.addEventListener('click', () => {
   modalAdicionar.style.display = 'none'; // Oculta o modal
 });
 
+fecharModalEditar.addEventListener('click',()=>{
+  modalEditar.style.display = 'none';
+})
 
 // Fecha o modal ao clicar fora do conteúdo
 window.addEventListener('click', (event) => {
@@ -174,6 +343,10 @@ window.addEventListener('click', (event) => {
 
   if (event.target === modalAdicionar) {
     modalAdicionar.style.display = 'none';
+  }
+
+  if (event.target === modalEditar) {
+    modalEditar.style.display = 'none';
   }
 });
 
@@ -191,11 +364,25 @@ interruptorCadastrar.addEventListener('click', ()=>{
 
 });
 
+interruptorEditar.addEventListener('click', ()=>{
+  const valor = interruptorEditar.checked;
+  if(valor){
+      const entrada = document.querySelector('#horaEditar');
+      entrada.style.display="block";
+  }
+  else{
+      const entrada = document.querySelector('#horaEditar');
+      entrada.style.display="none";
+      document.getElementById('horaEditar').value = ""
+  }
+
+});
+
 adicionarTarefa.addEventListener('click', ()=>{
 
   const titulo = document.getElementById('titulo').value;
   const descricao = quill.getSemanticHTML();
-  const tempo = document.getElementById('hora').value;
+  let tempo = document.getElementById('hora').value;
 
 
   if (!titulo || descricao == "<p></p>") {
@@ -208,6 +395,10 @@ adicionarTarefa.addEventListener('click', ()=>{
   
   if(adicionados[variaveis.id] == null){
     adicionados[variaveis.id] = [];
+  }
+
+  if(tempo == ""){
+    tempo = 0;
   }
   
   adicionados[variaveis.id].push({"titulo": titulo,

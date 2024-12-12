@@ -4,10 +4,28 @@ const openModalBtn = document.querySelectorAll("#botaoEntrarDemanda");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const userTestsBtn = document.getElementById("userTestsBtn");
 const guidelinesBtn = document.getElementById("guidelinesBtn");
+const botoesEntrar = document.getElementById("botoesdeentrar")
 
 // Abre o modal
 openModalBtn.forEach(elemento => {elemento.addEventListener("click", (evt) => {
     evt.preventDefault();
+    const temTeste = document.getElementById("temtesteUsuario"+elemento.getAttribute("data-id")).value
+    const temGuide = document.getElementById("temguideliness"+elemento.getAttribute("data-id")).value
+    console.log(temTeste);
+    console.log(temGuide);
+    if(temTeste == 1){
+        document.getElementById("BtnTeste").style.display = "block"
+    }
+    else{
+         document.getElementById("BtnTeste").style.display = "none"
+    }
+    if(temGuide == 1){
+        document.getElementById("BtnGuide").style.display = "block"
+    }
+    else{
+        document.getElementById("BtnGuide").style.display = "none"
+    }
+    
     document.getElementById("QualDemanda").value = elemento.getAttribute("data-id");
     modal.style.display = "flex";
 });});

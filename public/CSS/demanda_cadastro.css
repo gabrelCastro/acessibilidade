@@ -71,9 +71,21 @@ form{
 }
 
 .nome_pagina{
+    align-self: flex-start;
     height: 30px;
     width: 50%;
+    
 }
+
+.et{
+    margin-left: 20%;
+}
+
+.etl{
+    align-self: flex-start;
+    margin-left: 20%;
+}
+
 
 .label_pagina{
     font-weight: 600;

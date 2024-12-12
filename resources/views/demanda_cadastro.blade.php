@@ -37,17 +37,17 @@
 
             <div class="campo" id="camposTU">
                 <label class="classificacao" for="descricao">TESTE COM USUÁRIO</label>
-                <label for="titulo" class="label_pagina">TÍTULO</label>
-                <input type="text" class="url nome_pagina entrada" name="titulo" id="tituloTeste">
-                <label for="dispositivo" class="label_pagina">DISPOSITIVO</label>
-                <input type="text" class="url nome_pagina entrada" name="dispositivo" id="dispositivo">
+                <label for="titulo" class="label_pagina etl">TÍTULO:</label>
+                <input type="text" class="nome_pagina entrada et" name="titulo" id="tituloTeste">
+                <label for="dispositivo" class="label_pagina etl">DISPOSITIVO:</label>
+                <input type="text" class="nome_pagina entrada et" name="dispositivo" id="dispositivo">
             </div>
 
             <div class="campo" id="criarPaginas">
                 <label class="classificacao" for="paginas">PÁGINAS</label>
                 <div class="paginas">
                 <label for="label_pagina" class="label_pagina">URL DA PÁGINA:</label>
-                    <input id="url_input" class="url nome_pagina entrada" type="text" placeholder="Digite o url aqui..." data-cy="url">
+                    <input id="url_input" class="nome_pagina entrada" type="text" placeholder="Digite o url aqui..." data-cy="url">
                     <label for="label_pagina" class="label_pagina" >NOME DA PÁGINA:</label>
                     <div class="adicionar">
                         <input class="nome_pagina entrada" id="nome_input" type="text" placeholder="Digite o nome da página aqui..." data-cy="nome_pagina">

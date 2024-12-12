@@ -1,6 +1,14 @@
 @props(['demanda'])
 
 <div class="demanda" data-cy="demanda_teste">
+        <div class="oquetem">
+        @if($demanda->guideliness == 1)
+                    <div class="tem_guide">GUIDELINESS</div>
+        @endif
+        @if($demanda->testeUsuario == 1)
+                    <div class="tem_guide">TESTE COM USUÁRIO</div>
+        @endif
+        </div>
         <div class="information">
             <div class="row">
                 <p>Nome da demanda</p>
@@ -20,10 +28,13 @@
                 @csrf
                 @method('POST')
                 <input type="hidden" name="id" value="{{ $demanda->id }}">
+                <input type="hidden" name="temguideliness" id="temguideliness{{ $demanda->id }}" value="{{ $demanda->guideliness }}">
+                <input type="hidden" name="temtesteUsuario" id="temtesteUsuario{{ $demanda->id }}" value="{{ $demanda->testeUsuario }}">
                 <input type="hidden" name="testes" id="ondeir{{ $demanda->id }}">
                 <label for="password" class="label_senha">SENHA:</label>
                 <input type="password" name="password" class="input_password" data-cy="senha_demanda">
                 <button class="button" data-id ={{ $demanda->id }} id = "botaoEntrarDemanda" data-cy="butao_demanda">ENTRAR</button>
             </form>
         </div>
+        
     </div>

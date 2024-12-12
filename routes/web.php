@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AvaliacaoController;
+use App\Http\Controllers\SessaoController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\DemandaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandaGController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +53,10 @@ Route::middleware([
     Route::post('/cadastrar-tarefa',[TarefaController::class,"store"])->name('cadastrarTarefa');
 
     Route::post('/excluir-tarefa',[TarefaController::class,"delete"])->name('excluirTarefa');
+
+    Route::get('/sessoes',[SessaoController::class,'index'])->name('verSessoes');
+
+    Route::put('/tarefasEditar',[TarefaController::class,"update"])->name("editarTarefa");
 
 });
 
