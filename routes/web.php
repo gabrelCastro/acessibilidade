@@ -58,5 +58,13 @@ Route::middleware([
 
     Route::put('/tarefasEditar',[TarefaController::class,"update"])->name("editarTarefa");
 
+    Route::put('/editar-teste',[TesteController::class,"update"])->name("editar-teste");
+
+    Route::post('/cadastrar-sessao',[SessaoController::class,"store"])->name("cadastrar-sessao");
+
+    Route::post('/deletar-sessao',[SessaoController::class,"delete"])->name("deletar-sessao");
+
+    Route::put('/editar-sessao',[SessaoController::class,"update"])->name("editar-sessao");
+
 });
 

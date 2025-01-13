@@ -10,7 +10,7 @@
     <nav class="parte_cima">
         <h1>CADASTRAR AVALIAÇÃO</h1>
     </nav>
-
+    
     <div class="formulario">
         <form action="/demanda-cadastro" id="meu_formulario" method="POST" data-cy="meu_formulario">
             @csrf

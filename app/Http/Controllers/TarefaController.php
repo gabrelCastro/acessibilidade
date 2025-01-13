@@ -11,7 +11,7 @@ class TarefaController extends Controller
     public function store(Request $request){
         
         $dados = json_decode($request->json);
-    
+        
         foreach ($dados as $dado){
         
         $tarefa = new Tarefa();

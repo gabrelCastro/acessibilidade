@@ -12,7 +12,7 @@
 <body>
     <header>
     <a href="/" class="voltar"><span class="material-symbols-outlined" data-cy="sair">logout</span>Ir para Avaliações</a>
-
+    
         <h1>TESTE</h1>
         <div class="opcoesTeste">
             <button onclick="window.location.href='/sessoes';" class="botaoSessoes">VER SESSÕES</button>
@@ -76,11 +76,14 @@
 
 
     <div class = "informacoesTeste">
-        <form action="post" class="formTeste">
+        <form method="POST" class="formTeste" id="formularioCteste" action="{{ route('editar-teste')}}">
+          @csrf
+          @method('PUT')
+            <input type="hidden" name="id" value = "{{$id}}">
             <label for="titulo">TÍTULO</label>
-            <input class="titulodoTeste" type="text" value="{{$titulo}}">
+            <input class="titulodoTeste" type="text" name="titulo" value="{{$titulo}}">
             <label for="dispositivo">DISPOSITIVO</label>
-            <input class="dispositivodoTeste"  type="text" value="{{$dispositivo}}">
+            <input class="dispositivodoTeste"  name="dispositivo" type="text" value="{{$dispositivo}}">
         </form>
     </div>
 

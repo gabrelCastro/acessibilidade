@@ -11,7 +11,6 @@ class TesteController extends Controller
 {
     public function index(Request $request){
         $demandaId = $request->cookie('demanda_authenticated');
-            
         $teste = Teste::where('avaliacao_id',$demandaId)->first();
         $tarefas = Tarefa::where('avaliacao_id',$demandaId)->get();
 
@@ -20,6 +19,11 @@ class TesteController extends Controller
         }
 
         return view('welcome');
+    }
+
+    public function update(Request $request){
+        Teste::where('avaliacao_id',$request->id)->update(['titulo'=>$request->titulo,'dispositivo'=>$request->dispositivo]);
+        
     }
 
 

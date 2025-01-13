@@ -217,7 +217,6 @@ editarTarefasJaNoBanco.forEach((teste) => {
     const idTarefa = teste.getAttribute('data-id');
     let tarefaAchada;
 
-
     variaveis.tarefas.forEach(element => {
       if(element.id == idTarefa){
         tarefaAchada = element;
@@ -238,11 +237,11 @@ editarTarefasJaNoBanco.forEach((teste) => {
     entrada.style.display = 'none'
   }
 
-    document.getElementById("botaoEditarTarefa").setAttribute('data-id',teste.getAttribute('data-id'));
+    document.getElementById("botaoEditarSessao").setAttribute('data-id',teste.getAttribute('data-id'));
     modalEditar.style.display = 'flex'; // Exibe o modal
 
-    document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditar());
-    document.getElementById("botaoEditarTarefa").addEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefaAchada));
+    document.getElementById("botaoEditarSessao").removeEventListener('click',adicionarEventoDeEditar());
+    document.getElementById("botaoEditarSessao").addEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefaAchada));
 
 
   })
@@ -417,9 +416,14 @@ adicionarTarefa.addEventListener('click', ()=>{
 })
 
 botaoSalvar.addEventListener('click',()=>{
+
+  
+  document.getElementById("formularioCteste").submit();
+
+  
   
   let adicionados = JSON.parse(localStorage.getItem("adicionar"))[variaveis.id];
-
+  setTimeout(() => {
   if(adicionados != null){
       const formulario = document.createElement('form');
       formulario.method = 'POST';
@@ -448,17 +452,20 @@ botaoSalvar.addEventListener('click',()=>{
     
       
         document.body.appendChild(formulario);
-     
         
         formulario.submit();
         
-        document.body.removeChild(formulario);
+        
+          document.body.removeChild(formulario);
+        
 
         let mudar = JSON.parse(localStorage.getItem("adicionar"));
         mudar[variaveis.id] = [];
         localStorage.setItem("adicionar",JSON.stringify(mudar));
   }
+  }, 100);  
 
 
+  
 
 })

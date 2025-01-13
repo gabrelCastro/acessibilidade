@@ -29,7 +29,6 @@
 
 
 header{
-    padding: 30px;
     text-align: center;
     background-color: rgb(61, 61, 61);
     color: white;
@@ -47,14 +46,15 @@ header{
 
 }
 
-.lapis{
+.lapis,.lapisJaNoBanco,.olho{
     width: 60px; /* Tamanho da imagem da lixeira */
     height: 60px;
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     transition: transform 0.2s; /* Animação ao passar o mouse */
+
 }
 
-.lapis:hover {
+lapis:hover,.olho:hover, .lapisJaNoBanco:hover{
     transform: scale(1.2); /* Aumenta o ícone levemente ao passar o mouse */
 }
 
@@ -126,8 +126,8 @@ header{
     justify-content: space-between;
     width: 100%;
     height: 130px;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 1%;
+    padding-right: 1%;
     background-color: rgb(36, 36, 36);
     border: 3px solid blue;
 }
@@ -144,9 +144,17 @@ header{
     width: 100px;
     text-align: center;
     height: 100%;
+    border-radius: 13px;
     color:white;
-    background-color: #4caf50;
+    background-color: #001aff;
+    font-weight: 500;
     border: 3px solid white;
+}
+
+.entrarSessao:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+
 }
 
 header h1{
@@ -319,27 +327,7 @@ header h1{
     align-items: center;
   }
   
-  /* Conteúdo do modal */
-  .modal-conteudo {
-    border: 8px solid blue;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 40%;
-    height: 80%;
-    overflow: auto;
-  }
-  
-  /* Botão fechar */
-  .fechar,.fecharAdicionar {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin-top: -5px;
-    margin-left: 45%;
-  }
+
 
 .modal h3{
     text-align: start;
@@ -366,8 +354,14 @@ header h1{
 }
 
 
-#editor{
+#editor,#editorEditar{
     height: 100px;
+}
+
+.fecharEditar{
+    position: absolute;
+    margin-left: 35%;
+    margin-top: -280px;
 }
 
 .switch {
@@ -434,6 +428,7 @@ header h1{
   }
 
   .inputCriar{
+    padding-left: 4px;
     resize: none;
     border: 2px solid rgb(53, 0, 128);
     height: 50px;
@@ -473,4 +468,84 @@ header h1{
 
 .naosalvo{
     color: red;
+}
+
+
+  /* Conteúdo do modal */
+  .modal-conteudo {
+    overflow-x:hidden;
+    border: 8px solid blue;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 40%;
+    height: 80%;
+    overflow-y:scroll;
+  }
+  
+  /* Botão fechar */
+  .fechar,.fecharAdicionar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 35%;
+    margin-top: -220px;
+    z-index: 1000;
+  }
+
+  .fecharVisualizar{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 16%;
+    margin-top: -22px;
+  }
+
+  .voltar{
+    width: 30%;
+    justify-content: flex-start;
+    text-decoration: none;
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    color: white;
+}
+
+.salvarEditar{
+    background-color: #0013bc;
+    width: 150px;
+    color: white;
+    font-weight: 500;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.salvarEditar:hover{
+    transform: scale(1.05);
+}
+
+.botaoSalvarPagina{
+    width: 30%;
+    align-items: end;
+    
+    
+}
+
+.botaoSalvar1{
+    margin-left: 50%;
+    width: 30%;
+    color: white;
+    background-color: #4caf50;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.botaoSalvar1:hover{
+    transform: scale(1.1);
 }
