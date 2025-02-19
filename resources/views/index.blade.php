@@ -72,6 +72,17 @@
         </div>
       </div>
 
+      <div id="modalRemoverTarefa" class="modal">
+        <div class="modal-conteudo excluirTarefaJaExiste" id="conteudoCriar">
+        <div class="TituloDeletarProblema">TEM CERTEZA QUE DESEJA DELETAR A TAREFA?</div>
+          <div class="observacaoDeletarTarefa">OBS: Todas as avaliações relacionadas a essa tarefa serão deletadas</div>
+            <div class="opcoesDeletarProblema">
+                <button class="botaoOpcoesRemover removerProblemaBotaoTeste" id="removerProblemaBotao">SIM, TENHO CERTEZA</button>
+                <button class="botaoOpcoesRemover voltarDesistir">NÃO, DESEJO VOLTAR</button>
+            </div>
+
+        </div>
+      </div>
 
 
 
@@ -99,8 +110,8 @@
                 <p id="tituloEditar">{{$tarefa->titulo}}</p>
             </div>
             <div class="iconesTarefa">
-              <img src="img/lixeira.png" alt="excluir tarefa" data-id="{{$tarefa->id}}" class="lixeiraJaExiste">
               <img src="img/lapis.png" alt="editar tarefa" class="lapisJaNoBanco" data-id="{{$tarefa->id}}">
+              <img src="img/lixeira.png" alt="excluir tarefa" data-id="{{$tarefa->id}}" class="lixeiraJaExiste">
             </div>
 
             </div>

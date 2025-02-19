@@ -42,7 +42,6 @@ if(null !== tarefasAdicionadas && tarefasAdicionadas.length > 0){
             <div class="iconesTarefa">
             <img src="img/lixeira.png" alt="excluir tarefa" data-id=${i} class="lixeira">
             <img src="img/lapis.png" alt="editar tarefa" class="lapis" data-id=${i}>
-            <button class="entrarSessao">ENTRAR</button>
             </div>
         `;
   tarefas.appendChild(novaDiv);
@@ -444,3 +443,39 @@ antigatarefas.forEach((teste) => {
       modal.style.display = 'flex'; // Exibe o modal
     });
 })
+
+const botoesEntrar = document.querySelectorAll('.entrarSessao');
+botoesEntrar.forEach((botao) => {
+
+  botao.addEventListener('click',()=>{
+    const formulario = document.createElement('form');
+    formulario.method = 'GET';
+    formulario.action = variaveis.rotaIrSessao;
+    
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const tokenInput = document.createElement('input');
+    tokenInput.type = 'hidden';
+    tokenInput.name = '_token';
+    tokenInput.value = csrfToken;
+    formulario.appendChild(tokenInput);
+
+    const input1 = document.createElement('input');
+    input1.type = 'hidden'; // Campos escondidos
+    input1.name = "id"; // Nome do campo 
+    input1.id = "idEnviar";
+    input1.value = botao.getAttribute('data-id');
+    formulario.appendChild(input1);
+
+  
+    document.body.appendChild(formulario);
+  
+    
+    formulario.submit();
+    
+    document.body.removeChild(formulario);
+  })
+
+
+})
+
+

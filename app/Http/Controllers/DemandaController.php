@@ -14,7 +14,7 @@ class DemandaController extends Controller
         $demandas = Demandas::all();
         $usuario = Auth::user();
         
-        return view('demandas',['demandas' => $demandas, 'usuario' => $usuario]);
+        return view('demandas',['demandas' => $demandas, 'usuario' => $usuario, 'error' => $request->input('error')]);
     }
 
     public function armazenar(Request $request){
@@ -36,7 +36,7 @@ class DemandaController extends Controller
             }
         }
         else{
-            return redirect()->route('demanda.mostrar');
+            return redirect()->route('demanda.mostrar',['error' => 'Senha incorreta']);
         }
         
     }

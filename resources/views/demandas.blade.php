@@ -46,5 +46,10 @@
     };
 </script>
     <script src="/JS/demanda_ver.js"></script>
+    <script>
+        if("{{ $error != null }}"){
+        alert("Senha incorreta");
+    }
+    </script>
 </body>
 </html>

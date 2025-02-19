@@ -90,9 +90,9 @@
                   <p>{{$sessao->titulo}}</p>
       </div>
                   <div class="iconesTarefa">
-                  <img src="img/lixeira.png" alt="excluir tarefa" data-id="{{$sessao->id}}" class="lixeiraJaExiste">
+                  <button class="entrarSessao" data-id="{{$sessao->id}}">ENTRAR</button>
                   <img src="img/lapis.png" alt="editar tarefa" class="lapisJaNoBanco" data-id="{{$sessao->id}}">
-                  <button class="entrarSessao">ENTRAR</button>
+                  <img src="img/lixeira.png" alt="excluir tarefa" data-id="{{$sessao->id}}" class="lixeiraJaExiste">
         </div>
       </div>
     @endforeach
@@ -108,6 +108,7 @@
        rota: "{{route('cadastrar-sessao')}}",
        rotaEditar: "{{route('editar-sessao')}}",
        rotaExcluir: "{{route('deletar-sessao')}}",
+       rotaIrSessao: "{{route('sessao')}}",
         id: "{{$id}}",
         sessoes: @json($sessoes)
     };

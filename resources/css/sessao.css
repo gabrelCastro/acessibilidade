@@ -373,6 +373,7 @@ header h1{
   }
 
 .switchVer {
+    align-self: flex-start;
     pointer-events: none;
     position: relative;
     display:inline-block;
@@ -549,3 +550,35 @@ header h1{
 .botaoSalvar1:hover{
     transform: scale(1.1);
 }
+
+#descricaoModal{
+    text-align: start;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#textoTempo{
+    text-align: start;
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+
+.switchVer{
+    margin-top: 5px;
+    margin-left: -85%;
+}
+
+#escreverAvaliador{
+    text-align: start;
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+
+#tempoEstimado{
+    text-align: start;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+

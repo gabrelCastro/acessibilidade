@@ -380,3 +380,50 @@ header h1{
 .naosalvo{
     color: red;
 }
+
+.modalDeletarProblema{
+    padding: 20px;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid blue;
+}
+
+.opcoesDeletarProblema{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    gap:50px;
+    margin-top: 20px;
+}
+
+.TituloDeletarProblema{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.botaoOpcoesRemover{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.botaoOpcoesRemover:hover{
+    transform: scale(1.05);
+}
+
+.voltarDesistir{
+    background-color: green;
+}
+
+.removerProblemaBotaoTeste{
+    background-color: red;
+}
+
+#conteudoCriar{
+    height: auto;
+}

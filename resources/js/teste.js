@@ -54,8 +54,8 @@ if(null !== tarefasAdicionadas && tarefasAdicionadas.length > 0){
                 <p>${tarefasAdicionadas[i].titulo}  <p class = "naosalvo">(Não salva)<\p></p>
             </div>
             <div class="iconesTarefa">
-            <img src="img/lixeira.png" alt="excluir tarefa" data-id=${i} class="lixeira">
             <img src="img/lapis.png" alt="editar tarefa" class="lapis" data-id=${i}>
+            <img src="img/lixeira.png" alt="excluir tarefa" data-id=${i} class="lixeira">
             </div>
         `;
   tarefas.appendChild(novaDiv);
@@ -237,11 +237,11 @@ editarTarefasJaNoBanco.forEach((teste) => {
     entrada.style.display = 'none'
   }
 
-    document.getElementById("botaoEditarSessao").setAttribute('data-id',teste.getAttribute('data-id'));
+    document.getElementById("botaoEditarTarefa").setAttribute('data-id',teste.getAttribute('data-id'));
     modalEditar.style.display = 'flex'; // Exibe o modal
 
-    document.getElementById("botaoEditarSessao").removeEventListener('click',adicionarEventoDeEditar());
-    document.getElementById("botaoEditarSessao").addEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefaAchada));
+    document.getElementById("botaoEditarTarefa").removeEventListener('click',adicionarEventoDeEditar());
+    document.getElementById("botaoEditarTarefa").addEventListener('click',adicionarEventoDeEditarJaNoBanco(tarefaAchada));
 
 
   })
@@ -277,37 +277,53 @@ antigatarefas.forEach((teste) => {
       modal.style.display = 'flex'; // Exibe o modal
     });
   
-  const excluirTarefas = document.querySelectorAll('.lixeiraJaExiste');
-  excluirTarefas.forEach((teste) => {
-    teste.addEventListener('click', () => {
-      const formulario = document.createElement('form');
-      formulario.method = 'POST';
-      formulario.action = variaveis.rotaExcluir;
-      
-      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-      const tokenInput = document.createElement('input');
-      tokenInput.type = 'hidden';
-      tokenInput.name = '_token';
-      tokenInput.value = csrfToken;
-      formulario.appendChild(tokenInput);
 
-      const input1 = document.createElement('input');
-      input1.type = 'hidden'; // Campos escondidos
-      input1.name = "id"; // Nome do campo 
-      input1.id = "idEnviar";
-      input1.value = teste.getAttribute('data-id');
-      formulario.appendChild(input1);
-  
+
+
+    const lixeiras = document.querySelectorAll('.lixeiraJaExiste');
+    const removerProblemaBotao = document.getElementById('removerProblemaBotao');
+
+    lixeiras.forEach(lixeira =>{
+
+      lixeira.addEventListener('click',()=>{
+        removerProblemaBotao.dataset.id = lixeira.dataset.id;
+        document.getElementById('modalRemoverTarefa').style.display = 'flex';
+      });
+
     
-      document.body.appendChild(formulario);
-    
-      
-      formulario.submit();
-      
-      document.body.removeChild(formulario);
-    });
-  }
-  );
+
+    })
+
+      removerProblemaBotao.addEventListener('click',()=>{
+        const formulario = document.createElement('form');
+            formulario.method = 'POST';
+            formulario.action = variaveis.rotaExcluir;
+            
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const tokenInput = document.createElement('input');
+            tokenInput.type = 'hidden';
+            tokenInput.name = '_token';
+            tokenInput.value = csrfToken;
+            formulario.appendChild(tokenInput);
+
+            const input1 = document.createElement('input');
+            input1.type = 'hidden'; // Campos escondidos
+            input1.name = "id"; // Nome do campo 
+            input1.id = "idEnviar";
+            input1.value = teste.getAttribute('data-id');
+            formulario.appendChild(input1);
+        
+          
+            document.body.appendChild(formulario);
+          
+            
+            formulario.submit();
+            
+            document.body.removeChild(formulario);
+
+          });
+
+
 
 })
 
@@ -346,6 +362,9 @@ window.addEventListener('click', (event) => {
 
   if (event.target === modalEditar) {
     modalEditar.style.display = 'none';
+  }
+  if(event.target == document.getElementById('modalRemoverTarefa')){
+    document.getElementById('modalRemoverTarefa').style.display = 'none';
   }
 });
 
@@ -468,4 +487,8 @@ botaoSalvar.addEventListener('click',()=>{
 
   
 
+})
+
+document.querySelector('.voltarDesistir').addEventListener('click', () => {
+  document.getElementById('modalRemoverTarefa').style.display = 'none';
 })
