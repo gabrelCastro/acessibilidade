@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/demandas.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Avaliações</title>
+    @vite(entrypoints: ['resources/css/demandas.css', 'resources/js/demanda_ver.js'])
 </head>
 <body>
     <div class="nav-bar">
@@ -45,7 +45,6 @@
         guidelines: "{{ route('demanda.senha') }}" 
     };
 </script>
-    <script src="/JS/demanda_ver.js"></script>
     <script>
         if("{{ $error != null }}"){
         alert("Senha incorreta");

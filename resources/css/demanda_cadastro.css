@@ -27,7 +27,7 @@ h1{
 .formulario{
     box-sizing: border-box;
     margin: 3% auto;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     min-width: 300px;
     width: 50%;
     height: auto;

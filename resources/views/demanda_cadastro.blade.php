@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/demanda_cadastro.css">
-    <title>Document</title>
+    <title>Cadastrar Avaliação</title>
+    @vite( ['resources/css/demanda_cadastro.css','resources/js/demanda_create.js'] )
 </head>
 <body>
     <nav class="parte_cima">
@@ -51,7 +51,7 @@
                     <label for="label_pagina" class="label_pagina" >NOME DA PÁGINA:</label>
                     <div class="adicionar">
                         <input class="nome_pagina entrada" id="nome_input" type="text" placeholder="Digite o nome da página aqui..." data-cy="nome_pagina">
-                        <button class="botao_pagina" onclick="adicionarPagina()" data-cy="botao_pagina">Adicionar Página</button>
+                        <button class="botao_pagina" data-cy="botao_pagina">Adicionar Página</button>
                     </div>
                 </div>
                 <div class="paginas_criadas" id="paginas_criadas">
@@ -70,6 +70,5 @@
             <button class="botao_final" type="submit" data-cy="botao_final">ADICIONAR AVALIAÇÃO</button>
         </form>
     </div>
-    <script src="/JS/demanda_create.js"></script>
 </body>
 </html>

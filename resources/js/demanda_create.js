@@ -1,6 +1,7 @@
-function adicionarPagina() {
-    event.preventDefault();
 
+
+document.querySelector('.botao_pagina').addEventListener('click', ()=> {
+    event.preventDefault();
     // Clona a div com a classe "paginas"
     var divPaginas = document.querySelector('.paginas').cloneNode(true);
 
@@ -49,7 +50,7 @@ function adicionarPagina() {
     nomePagina.value = "";
 
     atualizarInputsHidden(); // Atualiza os inputs ao adicionar uma página
-}
+})
 
 function atualizarInputsHidden() {
     var paginas = document.querySelectorAll('.a_pagina');
