@@ -73,15 +73,15 @@
       </div>
 
       <div id="modalRemoverTarefa" class="modal">
-        <div class="modal-conteudo excluirTarefaJaExiste" id="conteudoCriar">
+        <div class="modal-conteudo" id="conteudoCriar">
+        <span class="fecharRemover"><img src="/img/fechar.png" class = "fechar"alt="fechar visualização"></span>
         <div class="TituloDeletarProblema">TEM CERTEZA QUE DESEJA DELETAR A TAREFA?</div>
           <div class="observacaoDeletarTarefa">OBS: Todas as avaliações relacionadas a essa tarefa serão deletadas</div>
             <div class="opcoesDeletarProblema">
                 <button class="botaoOpcoesRemover removerProblemaBotaoTeste" id="removerProblemaBotao">SIM, TENHO CERTEZA</button>
                 <button class="botaoOpcoesRemover voltarDesistir">NÃO, DESEJO VOLTAR</button>
             </div>
-
-        </div>
+      </div>
       </div>
 
 

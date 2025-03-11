@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/avaliacao.css">
+    @vite(['resources/css/avaliacaoGuide.css','resources/js/avaliacaoGuide.js'])
     <title>Avaliação</title>
 </head>
 
@@ -79,7 +79,7 @@
                     <label class ="descricao_title" for="image">Adicionar imagens do erro</label><br><br>
                     <div id="imageUploadContainer">
                     </div>
-                    <button type="button" onclick="addImageUpload()" class="adicionar_imagem">Adicionar Imagem</button>
+                    <button type="button" class="adicionar_imagem">Adicionar Imagem</button>
                 </div>
                 @if(!empty($tem_erro->images[0]) and $tem_erro->em_cfmd == "2")
                     <div class='anterior_quadrado'>
@@ -99,7 +99,6 @@
         </form>
     </div>
     </div>
-    <script src="/JS/avaliacao.js"></script>
 </body>
 
 </html>

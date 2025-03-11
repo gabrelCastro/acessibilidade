@@ -15,7 +15,6 @@
     font-size: 30px;
     font-weight: bold;
     color: black;
-    margin-bottom: 40px;
 }
 
 #editor{
@@ -37,7 +36,7 @@ label{
 
 .tarefasR{
     width: 600px;
-    height: 300px;
+    min-height: 300px;
     overflow-y: scroll;
     margin-top: 20px;
     border: 3px solid gray;
@@ -125,7 +124,7 @@ label{
 .tarefasNoModalVisualizar{
     border: 5px solid gray;
     overflow-y: scroll;
-    height: 200px;
+    height: 300px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -193,4 +192,10 @@ label{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+#modalEditarProblema{
+    label{
+        margin-top: 2vw;
+    }
 }

@@ -363,11 +363,16 @@ window.addEventListener('click', (event) => {
   if (event.target === modalEditar) {
     modalEditar.style.display = 'none';
   }
+
   if(event.target == document.getElementById('modalRemoverTarefa')){
     document.getElementById('modalRemoverTarefa').style.display = 'none';
   }
 });
 
+
+document.querySelector(".fecharRemover").addEventListener('click',()=>{
+  document.getElementById('modalRemoverTarefa').style.display = 'none';
+})
 
 interruptorCadastrar.addEventListener('click', ()=>{
   const valor = interruptorCadastrar.checked;

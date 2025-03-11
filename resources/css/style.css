@@ -234,16 +234,14 @@ header h1{
   }
   
   /* Botão fechar */
-.fechar,.fecharAdicionar,.fecharEditar {
+.fechar,.fecharAdicionar,.fecharEditar,.fecharRemover {
     position: relative;
     width: 50px;
     height: 50px;
     margin-top: -35px;
     margin-left: 50%;
     cursor: pointer;
-
 }
-
 
 
 .modal h3{

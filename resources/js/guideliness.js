@@ -122,7 +122,7 @@ const openModalButtons = document.querySelectorAll('.open-modal');
     const fade = document.querySelector('#fade');
     const modal = document.querySelector('#modal');
     const deleteForm = document.querySelector('#deleteForm');
-    input_id = document.getElementById("id_valor");
+    const input_id = document.getElementById("id_valor");
 
     const toggleModal = () => {
         modal.classList.toggle('hide');

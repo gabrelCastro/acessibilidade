@@ -122,6 +122,10 @@ window.addEventListener('click', (event) => {
   if (event.target === modalAdicionar) {
     modalAdicionar.style.display = 'none';
   }
+
+  if(event.target === modalEditar){
+    modalEditar.style.display = 'none';
+  }
 });
 
 

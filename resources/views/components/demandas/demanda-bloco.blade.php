@@ -11,7 +11,7 @@
         </div>
         <div class="information">
             <div class="row">
-                <p>Nome da demanda</p>
+                <p>Nome da avaliação</p>
                 <p>Status</p>
                 <p>Ultima Modificação</p>
             </div>
