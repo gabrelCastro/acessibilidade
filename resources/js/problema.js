@@ -294,3 +294,12 @@ document.getElementById('botaoEditarProblema').addEventListener('click', () => {
 document.querySelector('.voltarDesistir').addEventListener('click', () => {
   document.getElementById('modalDeletarProblema').style.display = 'none';
 })
+
+document.querySelectorAll(".fecharVisualizar").forEach(botao =>{
+  botao.addEventListener('click',()=>{
+    modalVisualizarProblema.style.display = 'none';
+    modalAdicionarProblema.style.display = 'none';
+    modalEditarProblema.style.display = 'none';
+    document.getElementById('modalDeletarProblema').style.display = 'none';
+  })
+})

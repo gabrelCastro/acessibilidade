@@ -118,7 +118,8 @@ label{
     margin: auto auto;
     padding: 20px;
     border-radius: 5px;
-    width: 40%;
+    width: 46%;
+    min-width: 500px;
     height: 70%;
     border: 5px solid blue;
     overflow-y: scroll;
@@ -482,3 +483,30 @@ label{
     overflow-y: scroll;
     height: auto;
 }
+
+
+.fecharVisualizar{
+    position: absolute;
+    width: 45px;
+    top: 30px;
+    margin-left: 44%;
+}
+
+@media (max-width: 1000px) {
+    .fecharVisualizar{
+        margin-left: 250px;
+    }
+}
+
+.conteudoModalEditar .fecharVisualizar{
+    top:20px;
+}
+
+.conteudoModalVisualizar .fecharVisualizar{
+    top:93px;
+}
+
+.conteudoModalEditar .ecluir{
+    top: 220px;
+}
+

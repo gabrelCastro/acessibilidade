@@ -298,3 +298,12 @@ simCerteza.addEventListener('click',()=>{
 
 
 });
+
+document.querySelectorAll(".fecharVisualizar").forEach(element =>{
+    element.addEventListener('click',()=>{  
+        modalVisualizarTarefa.style.display = 'none';
+        modalEditarTarefa.style.display = 'none';
+        modalExcluirAvaliacao.style.display = 'none';
+        modalAvaliarTarefa.style.display = 'none';
+    })
+})

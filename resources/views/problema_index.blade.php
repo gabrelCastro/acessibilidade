@@ -22,6 +22,7 @@
 
     <div class="modal" id="modalVisualizarProblema">
         <div class="conteudo-modal conteudoModalVisualizar">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
             <div class="tituloVisualizarProblema">VISUALIZAR PROBLEMA</div>
             <label class="tituloDescricaoDoProblema">DESCRICAO DO PROBLEMA</label>
             <div class="descricaoDoProblema" id="descricaoProblema"></div>
@@ -35,6 +36,7 @@
 
     <div class="modal" id="modalCriarProblema">
         <div class="conteudo-modal">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
             <div class="tituloCadastrarProblema">CADASTRAR PROBLEMA</div>
             <label for="">TITULO</label>
             <input type="text" id="tituloProblemaCadastrar" class="tituloProblema">
@@ -51,8 +53,8 @@
                         </div>
                     </div>
                 @endforeach
-                
             </div>
+
             <button id="botaoCadastrarProblema" class="botaoCadastrarProblema">CADASTRAR PROBLEMA</button>
 
         </div>
@@ -60,6 +62,7 @@
 
     <div class="modal" id="modalEditarProblema">
         <div class="conteudo-modal">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
             <div class="tituloCadastrarProblema">EDITAR PROBLEMA</div>
             <label for="">TITULO</label>
             <input type="text" id="tituloProblemaEditar" class="tituloProblema">
@@ -85,6 +88,7 @@
 
     <div class="modal" id="modalDeletarProblema">
         <div class="conteudo-modal modalDeletarProblema">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar excluirFechar"alt="fechar visualização"></span>
             <div class="TituloDeletarProblema">TEM CERTEZA QUE DESEJA DELETAR O PROBLEMA?</div>
             <div class="opcoesDeletarProblema">
                 <button class="botaoOpcoesRemover removerProblemaBotaoTeste" id="removerProblemaBotao">SIM, TENHO CERTEZA</button>

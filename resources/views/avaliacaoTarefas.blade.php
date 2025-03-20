@@ -13,6 +13,7 @@
 
     <div class="modal" id="modalAvaliarTarefa">
             <div class="conteudo-modal">
+                <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
                 <p class="avaliarTitulo">AVALIAR TAREFA</p>
 
                 <div class="informDaTarefaNoModal">
@@ -42,6 +43,7 @@
 
     <div class="modal" id="modalVisualizarTarefa">
         <div class="conteudo-modal conteudoModalVisualizar">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
             <div class="tituloVisualizarTarefa">AVALIAÇÃO DA TAREFA</div>
             <label>RELATÓRIO</label>
             <div id="relatorioVisualizarTarefa">
@@ -55,6 +57,8 @@
 
     <div class="modal" id="modalEditarTarefa">
         <div class="conteudo-modal conteudoModalEditar">
+            <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
+
                     <p class="avaliarTitulo">EDITAR AVALIAÇÃO</p>
 
             <div class="informDaTarefaNoModal">
@@ -84,6 +88,7 @@
 
     <div class="modal" id="modalExcluirTarefa">
         <div class="conteudo-modal conteudoModalEditar">
+            <span class="fecharVisualizar ecluir"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
             <div class="temCerteza">Tem certeza que deseja excluir essa avaliação?</div>
             <div class="botoesEscolhaExcluir">
                 <button id="simCerteza" class="botoesEscolha escolhaPositiva">SIM, TENHO CERTEZA</button>

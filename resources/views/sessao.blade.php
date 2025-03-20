@@ -24,7 +24,7 @@
 
 <div id="modalVisualizarTarefa" class="modal">
     <div class="modal-conteudo" id="conteudoTarefaVisualizar">
-        <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
+      <span class="fecharVisualizar"><img src="img/fechar.png" class = "fecharVisualizar"alt="fechar visualização"></span>
       <h2 id="tituloModal">Tarefa 1</h2>
       <h3>DESCRIÇÃO</h3>
       <div id="descricaoModal"></div>

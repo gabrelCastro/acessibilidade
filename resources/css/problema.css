@@ -1,13 +1,17 @@
 .conteudo-modal{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    overflow-x: hidden;
+    border: 8px solid blue;
+    background-color: #fff;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
     width: 50%;
+    min-width: 500px;
     height: 80%;
-    overflow-y: scroll;
-    border-radius: 10px;
-    border: 5px solid blue;
+    overflow-y:scroll;
 }
 
 .tituloCadastrarProblema{
@@ -22,16 +26,20 @@
 }
 
 label{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    align-self: flex-start;
     font-size: 20px;
     font-weight: bold;
     color: blue;
 }
 
 .tarefaR{
+    text-wrap: normal;
     border-radius: 7px;
     width: 90%;
     border: 4px solid blueviolet;
-    padding: 5px;
+    padding: 8px;
 }
 
 .tarefasR{
@@ -63,6 +71,9 @@ label{
     margin-left: 20px;
     font-size: 15px;
     font-weight: 400;
+    width: auto;
+    word-wrap: break-word;
+    height: auto;
     color: black;
 }
 
@@ -81,7 +92,6 @@ label{
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
-    
 }
 
 .botaoCadastrarProblema:hover{
@@ -111,6 +121,7 @@ label{
 }
 
 .descricaoDoProblema{
+    align-self: flex-start;
     margin-left: 20px;
     font-size: 20px;
     font-weight: 500;
@@ -146,6 +157,7 @@ label{
 .modalDeletarProblema{
     padding: 20px;
     width: 40%;
+    min-width: 300px;
     height: auto;
     border-radius: 10px;
     border: 5px solid blue;
@@ -198,4 +210,22 @@ label{
     label{
         margin-top: 2vw;
     }
+}
+
+.fecharVisualizar{
+    left: 54%;
+    position: absolute;
+}
+
+.conteudoModificar{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.excluirFechar{
+    position: absolute;
+    left: -70%;
 }
