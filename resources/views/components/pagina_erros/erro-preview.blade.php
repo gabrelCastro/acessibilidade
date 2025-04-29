@@ -4,23 +4,30 @@
         <div class="menuSuspenso queNaoEstaDeAcordo">
                 <div class="barra barraqueNaoEstaDeAcordo">
                     <p>INFORMAÇÕES DO PROBLEMA</p>
-                    <img src="iconeSuspenso.png" alt="">
+                    <img src="img/iconeSuspenso.png" alt="">
                 </div>
+
+                <div class="conteudoDiretriz oculto">
 
                 <div class="InformacoesDoProblemaDoItem">
                     <h1>DESCRIÇÃO</h1>
 
-                    <p>{!! nl2br($tem_erro["$itemChecklist->id"]->descricao) !!}</p>
+                    <p class="descri">{!! $tem_erro["$itemChecklist->id"]->descricao !!}</p>
                     
                     <h1>PÁGINAS</h1>
                     @foreach ($pgs["$itemChecklist->id"] as $paginas)
-                    <p>{{$paginas->pagina}} - {{$paginas->url}}</p>
+                    <p class="pe">{{$paginas->pagina}} - {{$paginas->url}}</p>
                     @endforeach
-                    <h1>IMAGENS</h1>
+                    <div class="espacoImagens">IMAGENS</div>
                     @foreach ($tem_erro["$itemChecklist->id"]->images as $imagem)
                     <img src="{{asset($imagem->path_image)}}" class="imagens">
                     @endforeach
+                    @if(count($tem_erro["$itemChecklist->id"]->images) == 0 )
+                     Sem imagens
+                    @endif 
+
                 </div>
-        
+                
+            </div>
             </div>
             @endif

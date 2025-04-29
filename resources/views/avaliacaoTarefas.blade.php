@@ -100,7 +100,7 @@
 
     <header>
         <a href="{{route('verSessoes')}}" class="voltar"><span class="material-symbols-outlined" data-cy="sair">logout</span>Voltar para Sessões</a>
-        <div class="titulo">testes x: SESSÃO DE TESTE 1</div>
+        <div class="titulo">{{$sessao->titulo}}</div>
         <div class="voltar"></div>
     </header>
 
@@ -138,9 +138,7 @@
     <div class="areaTarefas">
         <h1 class="tituloTarefas">TAREFAS</h1>
 
-        <div class="abaFiltro"><h4>FILTRAR</h4><span class="material-symbols-outlined">
-stat_minus_1
-</span></div>
+
     </div>
 
     <div class="tarefas">

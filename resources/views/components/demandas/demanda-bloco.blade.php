@@ -3,7 +3,7 @@
 <div class="demanda" data-cy="demanda_teste">
         <div class="oquetem">
         @if($demanda->guideliness == 1)
-                    <div class="tem_guide">GUIDELINESS</div>
+                    <div class="tem_guide">GUIDELINES</div>
         @endif
         @if($demanda->testeUsuario == 1)
                     <div class="tem_guide">TESTE COM USUÁRIO</div>

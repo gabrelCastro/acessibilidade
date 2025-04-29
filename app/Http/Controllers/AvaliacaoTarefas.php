@@ -48,7 +48,7 @@ class AvaliacaoTarefas extends Controller
         }
 
         // Inserindo na tabela de relacionamento
-        DB::table('avaliacaotarefa')->insert([
+        DB::table('avaliacaoTarefa')->insert([
             'sessao_id' => $validated['idSessao'],
             'tarefa_id' => $validated['idTarefa'],
             'conseguiuRealizar' => $valor,
@@ -77,7 +77,7 @@ class AvaliacaoTarefas extends Controller
         }
 
         // Inserindo na tabela de relacionamento
-        DB::table('avaliacaotarefa')->where('sessao_id',$validated['idSessao'])->where('tarefa_id',$validated['idTarefa'])->update([
+        DB::table('avaliacaoTarefa')->where('sessao_id',$validated['idSessao'])->where('tarefa_id',$validated['idTarefa'])->update([
             'conseguiuRealizar' => $valor,
             'relatorio' => $validated['descricao'],
             'updated_at' => now(),
@@ -94,7 +94,7 @@ class AvaliacaoTarefas extends Controller
             'idTarefa' => 'required|exists:tarefa,id',
         ]);
 
-        DB::table('avaliacaotarefa')->where('sessao_id',$validated['idSessao'])->where('tarefa_id',$validated['idTarefa'])->delete();
+        DB::table('avaliacaoTarefa')->where('sessao_id',$validated['idSessao'])->where('tarefa_id',$validated['idTarefa'])->delete();
 
         return redirect()->route('sessao',["id"=>$validated['idSessao']]);
 

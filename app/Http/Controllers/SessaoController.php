@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Demandas;
+use App\Models\Teste;
 use App\Models\Sessao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -13,10 +14,12 @@ class SessaoController extends Controller
 
     public function index(Request $request){
         $demandaId = $request->cookie('demanda_authenticated');
+        
+        $teste = Teste::where('avaliacao_id',$demandaId)->first();
 
         $sessoes = Sessao::where('avaliacao_id',$demandaId)->get();
         
-        return view('sessao',['id'=>$demandaId,'sessoes'=>$sessoes]);
+        return view('sessao',['id'=>$demandaId,'sessoes'=>$sessoes,'titulo'=>$teste->titulo]);
     
 
     }

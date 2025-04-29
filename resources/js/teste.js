@@ -1,3 +1,4 @@
+
 const modal = document.getElementById('modalVisualizarTarefa'); // Modal de Visualizar Tarefa
 const modalAdicionar = document.getElementById('modalCriarTarefa'); // Modal de Adicionar Tarefa
 const modalCriar = document.getElementById('botaoNovaTarefa');  // Botão de Abrir modal de Criação de nova Tarefa
@@ -439,60 +440,51 @@ adicionarTarefa.addEventListener('click', ()=>{
 
 })
 
-botaoSalvar.addEventListener('click',()=>{
-
-  
-  document.getElementById("formularioCteste").submit();
-
-  
-  
+botaoSalvar.addEventListener('click', async () => {
   let adicionados = JSON.parse(localStorage.getItem("adicionar"))[variaveis.id];
-  setTimeout(() => {
-  if(adicionados != null){
-      const formulario = document.createElement('form');
-      formulario.method = 'POST';
-      formulario.action = variaveis.rota;
-      const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-      const tokenInput = document.createElement('input');
-      tokenInput.type = 'hidden';
-      tokenInput.name = '_token';
-      tokenInput.value = csrfToken;
-      formulario.appendChild(tokenInput);
 
-     
-        const input = document.createElement('input');
-        input.type = 'hidden'; // Campos escondidos
-        input.name = "json"; // Nome do campo 
-        input.id = "enviarJson";
-        input.value = JSON.stringify(adicionados);
-        formulario.appendChild(input);
+  if (adicionados != null && adicionados.length > 0) {
+    // Criar formulário
+    const formulario = document.createElement('form');
+    formulario.method = 'POST';
+    formulario.action = variaveis.rota;
 
-        const input1 = document.createElement('input');
-        input1.type = 'hidden'; // Campos escondidos
-        input1.name = "demanda_id"; // Nome do campo 
-        input1.id = "demandaEnviar";
-        input1.value = variaveis.id;
-        formulario.appendChild(input1);
-    
-      
-        document.body.appendChild(formulario);
-        
-        formulario.submit();
-        
-        
-          document.body.removeChild(formulario);
-        
+    // Token CSRF
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const tokenInput = document.createElement('input');
+    tokenInput.type = 'hidden';
+    tokenInput.name = '_token';
+    tokenInput.value = csrfToken;
+    formulario.appendChild(tokenInput);
 
-        let mudar = JSON.parse(localStorage.getItem("adicionar"));
-        mudar[variaveis.id] = [];
-        localStorage.setItem("adicionar",JSON.stringify(mudar));
+    // Dados em JSON
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'json';
+    input.value = JSON.stringify(adicionados);
+    formulario.appendChild(input);
+
+    // ID da demanda
+    const input1 = document.createElement('input');
+    input1.type = 'hidden';
+    input1.name = 'demanda_id';
+    input1.value = variaveis.id;
+    formulario.appendChild(input1);
+
+    // Adiciona e envia
+    document.body.appendChild(formulario);
+    formulario.submit();
+
+    // Após envio, limpar os dados
+    let mudar = JSON.parse(localStorage.getItem("adicionar"));
+    mudar[variaveis.id] = [];
+    localStorage.setItem("adicionar", JSON.stringify(mudar));
+  } else {
+    // Se não tiver dados, só envia o outro formulário
+    document.getElementById("formularioCteste").submit();
   }
-  }, 100);  
+});
 
-
-  
-
-})
 
 document.querySelector('.voltarDesistir').addEventListener('click', () => {
   document.getElementById('modalRemoverTarefa').style.display = 'none';

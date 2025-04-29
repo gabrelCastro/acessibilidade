@@ -1,76 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-//Funções para exibir menos e exibir mais cada diretriz
-function ocultarExibirConteudo(seletorBotao) {
-    document.querySelectorAll(seletorBotao).forEach(function(botao){
-        botao.addEventListener('click', function() {
-            // Obtém o ID do conteúdo correspondente ao botão clicado
-            var idConteudo = this.dataset.target;
-        
-            // Oculta o conteúdo correspondente ao botão clicado
-            var conteudo = document.getElementById(idConteudo);
-            if(conteudo.style.display == ""){
-                conteudo.style.display = "block";
-            }
-            
-            if(conteudo.style.display === "block"){
-                conteudo.style.display = "none";
-                botao.innerHTML = "<span class='material-symbols-outlined'>expand_more</span>";
-            }else{
-                conteudo.style.display = "block";
-                botao.innerHTML = "<span class='material-symbols-outlined'>expand_less</span>";
-            }
-        });
-    });
-}
-//--------------------------------------------------------------------------------------------------------------
-
-
-
-//Funções para esconder ou exibir TODAS as diretrizes
-function mudarBotoesFuncEsconderExibirTudo(tipoBotao){
-    document.querySelectorAll('.botaoExpandirOcultarDiretriz').forEach(function(botao) {
-        botao.innerHTML = "<span class='material-symbols-outlined'>" + tipoBotao + "</span>";
-    });
-}
-
-function mudarVisibilidadeTodasDiretrizes(tipoDisplay){
-    document.querySelectorAll('.conteudoDiretriz').forEach(function(item) {
-        item.style.display = tipoDisplay;
-    });
-}
-
-
-function ocultarExibirTodasDiretrizes(){
-    document.getElementById('botaoExpandirEsconderTudo').addEventListener('click', function(){
-        var ocultos = 0;
-        var exibidos = 0;
-
-        document.querySelectorAll('.conteudoDiretriz').forEach(function(item){
-            if(item.style.display == ""){
-                item.style.display = "block";
-            }
-
-            if(item.style.display === "block") {
-                exibidos++;
-            }else{
-                ocultos++;
-            }
-        });
-
-        if(exibidos >= ocultos){
-            mudarVisibilidadeTodasDiretrizes("none");
-            mudarBotoesFuncEsconderExibirTudo("expand_more");
-        }
-        else{
-            mudarVisibilidadeTodasDiretrizes("block");
-            mudarBotoesFuncEsconderExibirTudo("expand_less");
-        }
-    });
-}
-//-----------------------------------------------------------------------------------------------------------------
-
-
 //Função para organizar por Diretrizes WCAG ou ABNT
 function organizarPor() {
     // Função para verificar se ambos os grupos de radio buttons têm uma opção selecionada
@@ -97,9 +26,7 @@ function organizarPor() {
 //-----------------------------------------------------------------------------------------------------------------
 
 organizarPor();
-ocultarExibirConteudo('.botaoExpandirOcultarDiretriz');
-ocultarExibirConteudo('.botaoExpandirOcultarGlossario');
-ocultarExibirTodasDiretrizes();
+
 });
 
 function demanda_expandir(){
@@ -116,31 +43,79 @@ function demanda_expandir(){
 }
 
 
-const openModalButtons = document.querySelectorAll('.open-modal');
-    const closeModalButton = document.querySelector('#close-modal');
-    const confirmDeleteButton = document.querySelector('#remover');
-    const fade = document.querySelector('#fade');
-    const modal = document.querySelector('#modal');
-    const deleteForm = document.querySelector('#deleteForm');
-    const input_id = document.getElementById("id_valor");
 
-    const toggleModal = () => {
-        modal.classList.toggle('hide');
-        fade.classList.toggle('hide');
-    };
 
-    openModalButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const itemId = e.currentTarget.getAttribute('data-item-id');
-            input_id.value = itemId;
-            toggleModal();
+
+    document.querySelector('.voltarDesistir').addEventListener('click', () => {
+        document.getElementById('modalDeletarProblema').style.display = 'none';
+      })
+
+
+    window.addEventListener('click', (event) => {
+      if(event.target == document.getElementById('modalDeletarProblema')){
+        document.getElementById('modalDeletarProblema').style.display = 'none';
+      }
+    });
+
+
+    const lixeiras = document.querySelectorAll('.lixeiraJaExiste');
+    const input = document.getElementById('id_valor');
+
+
+    lixeiras.forEach(lixeira =>{
+
+        lixeira.addEventListener('click',()=>{
+            input.value = lixeira.dataset.id;
+          document.getElementById('modalDeletarProblema').style.display = 'flex';
         });
-    });
+      
+       
+      
+      })
 
-    closeModalButton.addEventListener('click', () => toggleModal());
-    fade.addEventListener('click', () => toggleModal());
 
-    confirmDeleteButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        deleteForm.submit();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".barra img").forEach(img => {
+            img.addEventListener("click", function () {
+                let parent = this.closest(".menuSuspenso");
+                let conteudo = parent.querySelector(".conteudoDiretriz");
+    
+                if (conteudo) {
+                    conteudo.classList.toggle("oculto"); // Alterna a classe oculto
+                    this.classList.toggle("ativo"); // Adiciona um efeito visual ao ícone
+                }
+            });
+        });
+
+
+        
+            const inputPesquisa = document.getElementById("inputPesquisa");
+            const botaoBusca = document.getElementById("botaoBusca");
+        
+            botaoBusca.addEventListener("click", function () {
+                let termo = inputPesquisa.value.toLowerCase();
+                let itensChecklist = document.querySelectorAll(".itemChecklist");
+        
+                if (itensChecklist.length === 0) {
+                    console.warn("Nenhum item encontrado para busca.");
+                    return;
+                }
+        
+                itensChecklist.forEach(item => {
+                    let descricaoElemento = item.querySelector(".descricaoItem");
+        
+                    if (descricaoElemento) {
+                        let descricao = descricaoElemento.textContent.toLowerCase();
+        
+                        if (descricao.includes(termo)) {
+                            item.style.display = "block";  // Mostra os itens que correspondem à pesquisa
+                        } else {
+                            item.style.display = "none";  // Esconde os itens que não correspondem
+                        }
+                    }
+                });
+            });
+        
     });
+    

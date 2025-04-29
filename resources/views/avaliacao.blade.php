@@ -1,104 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/avaliacaoGuide.css','resources/js/avaliacaoGuide.js'])
-    <title>Avaliação</title>
+    <title>ADICIONAR ERRO DE ACESSIBILIDADE</title>
+    @vite(entrypoints: ['resources/css/avaliacaoGuide.css','resources/js/avaliacaoGuide.js'])
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
-
 <body>
-    <h1 class="titulo">Adicionar erro de acessibilidade</h1>
-    <div class="divisao">
-        <div class="info">
-            <div class="primeiro_texto">
-                <h3> Item: </h3>
-                <p> {{$descricao}} </p>
-                <h3> Checklist: </h3>
-                <p> {{$checklist}} </p>
-                <h3>Diretriz</h3>
-                @foreach($criterios as $criterio)
+    <header>
+        <div class="iconeVoltarGrupo">
+            <a href="/" class="iconeVoltarGrupo"><span class="material-symbols-outlined" data-cy="sair">logout</span>Ir para Avaliações</a>
+        </div>
+        <h1>ADICIONAR ERRO DE ACESSIBILIDADE</h1>
+        <div class="iconeVoltarGrupo"></div>
+    </header>
+
+    <div class="oitem itemChecklist">
+        <div class="oitemConteudo">
+            <div class="informacoesDoItem">
+                <h1>ITEM</h1>
+                <p>{{$descricao}}</p>
+                <h2>CRITÉRIO(S) WCAG</h2>
+                @foreach ($criterios as $criterio)
                 <p>{{$criterio->codigo}} ({{$criterio->conformidade}}): {{$criterio->nome}}</p>
                 @endforeach
+                <h2>Checklist ABNT:</h2>
+                <p>{{$checklist}}</p>
+            </div>
+        </div>
+    </div>
+    <p id="teste" style="display: none;">{{$metodo}}</p>
+    @if(isset($tem_erro->em_cfmd))<p id="teste1" style="display: none;">{{$tem_erro->em_cfmd}}</p>@endif
+    <form method="POST" action=" {{route($rota,['id' =>  $id ,'id_demanda' =>$id_demanda])}} " id="myForm" enctype="multipart/form-data">
+        @method($metodo)
+        @csrf
+        <div class="opcoesAvaliacaocheckComTitulo">
+        <h1>O SITE SEGUE AS RECOMENDAÇÕES?</h1>
+        <div class="opcoesAvaliacaocheck">
+            <input name="opcao" checked value=1 type="radio">
+            <label for="conforme">SIM</label>
+            <input name="opcao" value=2 type="radio">
+            <label for="naoConforme">NÃO</label>
+            <input name="opcao" value=3 type="radio">
+            <label for="naoAplicavel">NÃO SE APLICA</label>
+        </div>
+    </div>
+        <div id="ocultarExibir">
+            <div>
+            <h1 class="tituloGerall">PÁGINAS</h1>
+            <div class="paginasQuadrado">
+                <div class="umaPagina">
+                    @foreach ($paginas as $key=>$pg)
+                    <div>
+                        <input type="checkbox" value="{{$key}}" name="pgs[]" id="{{$key}}">
+                        <label for="">{{$pg->pagina}}  <p>({{$pg->url}})</p></label>
+                    </div>
+                    @endforeach
+                </div>
 
             </div>
         </div>
-        <br>
-        <p id="teste" style="display: none;">{{$metodo}}</p>
-        @if(isset($tem_erro->em_cfmd))<p id="teste1" style="display: none;">{{$tem_erro->em_cfmd}}</p>@endif
-        <form method="POST" action=" {{route($rota,['id' =>  $id ,'id_demanda' =>$id_demanda])}} " id="myForm" enctype="multipart/form-data">
-            @method($metodo)
-            @csrf
-            <div class="container_1">
-                <div class="parte_aplicabilidade">
-                    <label for="opcao">O site segue as recomendações?</label><br><br>
-                    <input type="radio" id="opcao" name="opcao" value=1>
-                    <label for="opcao">Sim</label>
-                    <input type="radio" id="opcao" name="opcao" value=2>
-                    <label for="opcao">Não</label>
-                    <input type="radio" id="opcao" name="opcao" value=3 checked="checked">
-                    <label for="opcao">Não se aplica</label><br><br>
-                </div>
-            </div>
-            <div id="principal">
-                <div>
-                    <br><label class ="descricao_title">Páginas</label><br><br>
-                    @foreach ($paginas as $key=>$pg)
-                        <input type="checkbox" id="{{$key}}" name="pgs[]" value="{{$key}}"/>
-                            <label class = "escrita_paginas" for="{{$key}}">{{$pg->pagina}}</label>
-                            <br>
-                        @endforeach
-                    @if(isset($pgs) and isset($tem_erro->em_cfmd) and $tem_erro->em_cfmd == "2")
-                    <div class='anterior_quadrado'>
-                        <p class="descricao_atual">Páginas atuais</p>
-                        <div class="anterior">
-                        @foreach ($pgs as $pgss)
-                                <p>{{$pgss["pagina"]}} - {{$pgss["url"]}}</p>
-                            @endforeach
-                        </div>
-                    </div>
+        
 
-                    @endif
-                </div>
-                <div>
-                    <br><label class="descricao_title">Descrição do Problema</label><br><br>
-                    <textarea name="descricao" class="descricao" id="descricao" type="text"></textarea>
-                    @if(isset($tem_erro->descricao) and $tem_erro->em_cfmd == "2")
-                    <div class='anterior_quadrado'>
-                        <p class="descricao_atual">Descrição atual</p>
-                        <div class="anterior">
-                            <p class="erro_atual">{!!nl2br($tem_erro->descricao)!!}</p>
-                        </div>
-                    </div>
+        <div>
+            <h1 class="tituloGerall">DESCRIÇÃO DO PROBLEMA</h1>
+            <div id="editor"></div>
+            <input type="hidden" class="descricao" name="descricao" id="conteudoHidden">
+        </div>
 
-                    @endif
-                </div>
-
-                <div class="imagens">
-                    <label class ="descricao_title" for="image">Adicionar imagens do erro</label><br><br>
-                    <div id="imageUploadContainer">
-                    </div>
-                    <button type="button" class="adicionar_imagem">Adicionar Imagem</button>
-                </div>
+        <div>
+            <h1 class="tituloGerall">ADICIONAR IMAGEM</h1>
+            <div class="adicionarImagem" id="imageUploadContainer">
+                <button class="adicionar_imagem">ADICIONAR IMAGEM</button>
                 @if(!empty($tem_erro->images[0]) and $tem_erro->em_cfmd == "2")
-                    <div class='anterior_quadrado'>
-                        <p class="descricao_atual">Imagens atuais</p>
-                        @foreach ($tem_erro->images as $imagens)
-                            <img src="{{asset($imagens->path_image)}}" class="imagens">
-                            <br>
+                <div class='anterior_quadrado'>
+                    @foreach ($tem_erro->images as $imagens)
+                        <img src="{{asset($imagens->path_image)}}" class="imagens">
+                        <br>
+                        <div>
                             <label for="remover_imagem" class="image_remove">Remover Imagem</label>
                             <input type="checkbox" name={{$imagens->id}} class="image_remove">
-                            <br>
-                        @endforeach
-                    </div>
-                @endif
+                        </div>
+                        <br>
+                    @endforeach
+                </div>
+            @endif
             </div>
+        </div>
+    </div>
 
-            <button class="botao_envio" onclick="validateForm()" id="botao_submition"type="submit">Enviar Avaliação</button>
-        </form>
-    </div>
-    </div>
+    <button class="botaoFinal" id="botao_submition"type="submit">ENVIAR</button>
+</form>
+    <script>
+        const tem_erro = @json($tem_erro);
+        const paginas = @json($paginas);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 </body>
-
 </html>

@@ -23,6 +23,7 @@ class TesteController extends Controller
 
     public function update(Request $request){
         Teste::where('avaliacao_id',$request->id)->update(['titulo'=>$request->titulo,'dispositivo'=>$request->dispositivo]);
+        return redirect()->route('teste');
         
     }
 

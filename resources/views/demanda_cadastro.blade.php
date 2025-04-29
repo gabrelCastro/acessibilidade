@@ -31,7 +31,7 @@
                 </div>
                 <div class="labeltesteUsuario">
                 <input type="checkbox" id="guideliness" name="guideliness" checked />
-                <label  for="guideliness">AVALIAÇÃO POR GUIDELINESS</label>
+                <label  for="guideliness">AVALIAÇÃO POR GUIDELINES</label>
                 </div>
             </div>
 

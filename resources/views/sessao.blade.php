@@ -14,8 +14,10 @@
 <header>
 <a href="/testeUsuario" class="voltar"><span class="material-symbols-outlined" data-cy="sair">logout</span>Menu Principal do Teste</a>
 <div class="tituloseparar">
+    <div style="text-align: center">
     <h2>SESSÕES</h2>
-    <h3>TESTE: teste 1</h3>
+    <h3>TESTE: {{$titulo}}</h3>
+    </div>
 </div>
 <div class="botaoSalvarPagina">
   <button class="botaoSalvar1" id="botaodeSalvar">Salvar</button>

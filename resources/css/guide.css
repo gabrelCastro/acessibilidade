@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.espacoImagens{
+    font-size: 1.6vw;
+    font-weight: 600;
+    margin-top: 3.5vw;
+    margin-bottom: 2vw;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -15,10 +22,11 @@ body{
 
 
 header{
+    border: 0.3vw solid blue;
     width: 100vw;
     padding: 2vw;
     color: aliceblue;
-    background-color: #001068;
+    background-color: #2b2b2b;
     display: flex;
     justify-content: center; 
     gap:22vw;
@@ -30,10 +38,12 @@ header h1{
 
 
 .iconeVoltarGrupo{
+    color: white;
     width: 10vw;
     display: flex;
     align-items: center;
     gap: 0.5vw;
+    text-decoration: none;
 }
 
 .iconeVoltarGrupo p{
@@ -53,6 +63,7 @@ header h1{
 }
 
 .menuSuspenso{
+    align-self: center;
     width: 70vw;
 
 }
@@ -79,6 +90,7 @@ header h1{
 
 
 .menuSuspenso{
+    align-self: center;
     border-radius: 1vw 1vw 1vw 1vw;
     border: 1px solid #001AFF;
     background-color: #FFF;
@@ -166,6 +178,15 @@ header h1{
     margin: 20px auto;
 }
 
+.opcoesFiltro form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10vw;
+    margin: 20px auto;
+    
+}
+
 
 #opcaoAvaliacoes, #opcaoEstadoAvaliacoes{
     padding: 0.3vw;
@@ -218,6 +239,7 @@ header h1{
     border-radius: 10px;
     border: 0.4vw solid #3700DB;
     background: #FFF;
+    margin-bottom: 4vw;
 
 }
 
@@ -303,6 +325,7 @@ header h1{
     display: flex;
     gap:1vw;
     align-items: center;
+    text-decoration: none;
     padding: 0.8vw;
     border-radius: 1vw;;
 }
@@ -312,15 +335,32 @@ header h1{
 }
 
 .NaoEstaDeAcordo{
+    font-weight: 600;
     width: 20vw;
     background-color: red;
     color:white
 }
 
+.NaoSeAplica{
+    font-weight: 600;
+    background-color: rgb(255, 136, 0);
+    color:white
+}
+
+.deAcordo{
+    font-weight: 600;
+    background-color: rgb(3, 97, 0);
+    color:rgb(255, 255, 255)
+}
+
 .queNaoEstaDeAcordo{
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+    margin-left: 6vw;
     width: 80%;
     align-self: center;
 }
+
 
 .barraqueNaoEstaDeAcordo{
     align-items: center;
@@ -339,10 +379,130 @@ header h1{
 
 
 .InformacoesDoProblemaDoItem h1{
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin-bottom: 0.5vw;
 }
 
 .InformacoesDoProblemaDoItem p{
+    font-size: 1.5vw;
     margin-bottom: 1.7vw;
+}
+
+.conteudo-modal{
+    display: flex;
+    flex-direction: column;
+    border: 8px solid blue;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: auto;
+    height: auto;
+    position: absolute;
+}
+
+
+.opcoesDeletarProblema{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    gap:50px;
+    margin-top: 20px;
+}
+
+
+.TituloDeletarProblema{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.botaoOpcoesRemover{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.botaoOpcoesRemover:hover{
+    transform: scale(1.05);
+}
+
+.voltarDesistir{
+    background-color: green;
+}
+
+.removerProblemaBotaoTeste{
+    background-color: red;
+}
+
+.tituloProblema{
+    padding: 10px;
+    border: 2px solid rgb(49, 49, 49);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+.excluirFechar{
+    position: absolute;
+    left: -70%;
+}
+
+.modalDeletarProblema{
+    padding: 20px;
+    width: 40%;
+    min-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid blue;
+}
+
+
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.fecharVisualizar img{
+    width: 2.8vw;
+    left: 38vw;
+    top:-1vw;
+    position: absolute;
+}
+
+
+
+.imagens{
+    margin-bottom: 3vw;
+}
+
+
+.ativo {
+    transform: rotate(180deg); /* Gira o ícone quando está ativo */
+    transition: transform 0.3s ease;
+}
+
+
+.oculto {
+    display: none;
+}
+
+.imagens{
+    max-width: 45vw;
+}
+
+.descri{
+    margin-top: -1vw;
 }

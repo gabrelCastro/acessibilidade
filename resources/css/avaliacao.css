@@ -17,7 +17,7 @@ header{
 .titulo{
     color: white;
     font-weight:600;
-    font-size: 250%;
+    font-size: 1.7vw;
 }
 
 .linkProblemas{
@@ -488,7 +488,6 @@ label{
 .fecharVisualizar{
     position: absolute;
     width: 45px;
-    top: 30px;
     margin-left: 44%;
 }
 
@@ -499,14 +498,19 @@ label{
 }
 
 .conteudoModalEditar .fecharVisualizar{
-    top:20px;
+    top:4.3vw;
 }
 
 .conteudoModalVisualizar .fecharVisualizar{
-    top:93px;
+    top:8vw;
 }
 
 .conteudoModalEditar .ecluir{
-    top: 220px;
+    top: 14.3vw;
 }
+
+#modalAvaliarTarefa .fecharVisualizar{
+    top: 2.8vw;
+}
+
 

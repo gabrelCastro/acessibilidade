@@ -1,4 +1,4 @@
-use laravel;
+use laravel_db;
 
 INSERT INTO `checklists` (`id`, `nome`, `descricao`, `created_at`, `updated_at`) VALUES
 (1, 'Imagens', 'A acessibilidade em imagens permite que todos os usuários, incluindo aqueles que usam tecnologia assistiva, possam compreender e utilizar a interface que faz uso de imagens tanto para transmitir informação quanto para executar uma ação.', NULL, NULL),
@@ -7,12 +7,6 @@ INSERT INTO `checklists` (`id`, `nome`, `descricao`, `created_at`, `updated_at`)
 INSERT INTO `diretrizes` (`id`, `codigo`, `nome`, `descricao`, `created_at`, `updated_at`) VALUES
 (1, '1.1', 'Alternativas de texto', 'Forneça alternativas de texto para qualquer conteúdo não textual', NULL, NULL),
 (2, '1.2', 'Mídias com base em tempo', 'Fornecer alternativas para mídias baseadas em tempo.', NULL, NULL);
-
-
-INSERT INTO `criterios` (`id`, `diretriz_id`, `codigo`, `nome`, `conformidade`, `created_at`, `updated_at`) VALUES
-(1, 1, '1.1.1', 'Conteúdo Não Textual', 'A', NULL, NULL),
-(2, 2, '1.2.1', 'Apenas Áudio e Apenas Vídeo (Pré-gravado)', 'A', NULL, NULL),
-(3, 2, '1.2.2', 'Legendas (Pré-gravadas)', 'A', NULL, NULL);
 
 
 INSERT INTO `itens` (`id`, `checklist_id`, `descricao`, `created_at`, `updated_at`) VALUES
@@ -26,6 +20,13 @@ INSERT INTO `itens` (`id`, `checklist_id`, `descricao`, `created_at`, `updated_a
 (8, 2, 'Todo áudio pré-gravado tem uma alternativa em texto que transcreve todo o conteúdo do áudio.', NULL, NULL),
 (9, 2, 'Todo vídeo sem áudio pré-gravado tem uma alternativa em texto que transcreve todo o conteúdo do vídeo.', NULL, NULL);
 
+
+
+INSERT INTO `criterios` (`id`, `diretriz_id`, `codigo`, `nome`, `conformidade`, `created_at`, `updated_at`) VALUES
+(1, 1, '1.1.1', 'Conteúdo Não Textual', 'A', NULL, NULL),
+(2, 2, '1.2.1', 'Apenas Áudio e Apenas Vídeo (Pré-gravado)', 'A', NULL, NULL),
+(3, 2, '1.2.2', 'Legendas (Pré-gravadas)', 'A', NULL, NULL);
+
 INSERT INTO `criterio_item` (`id`, `criterio_id`, `item_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, NULL, NULL),
 (2, 1, 2, NULL, NULL),
@@ -34,3 +35,12 @@ INSERT INTO `criterio_item` (`id`, `criterio_id`, `item_id`, `created_at`, `upda
 (5, 1, 5, NULL, NULL),
 (8, 2, 8, NULL, NULL),
 (10, 2, 9, NULL, NULL);
+
+
+
+
+
+
+
+
+

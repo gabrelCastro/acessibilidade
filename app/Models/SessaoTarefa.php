@@ -8,7 +8,7 @@ use App\Models\Tarefa;
 
 class SessaoTarefa extends Model
 {
-    protected $table = 'avaliacaotarefa';
+    protected $table = 'avaliacaoTarefa';
     use HasFactory;
 
 
