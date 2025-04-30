@@ -98,7 +98,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     var conteudo = quill.root.innerHTML; // pode usar .getContents() se quiser JSON
     document.getElementById('conteudoHidden').value = conteudo;
 
-    if ((opcaoSelecionada === "2" && metodo.textContent !== "PUT") || (metodo.textContent == 'PUT' && em_cfmd.textContent !== '2')) {
+    if ((opcaoSelecionada === "2" && metodo.textContent !== "PUT") || (metodo.textContent == 'PUT' && opcaoSelecionada == '2')) {
         var checkboxes = document.querySelectorAll('input[name="pgs[]"]');
         var isChecked = false;
 
@@ -109,7 +109,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
             }
         }
 
-        if (!isChecked && em_cfmd.textContent == '2') {
+        if (!isChecked && (em_cfmd.textContent == '2' || opcaoSelecionada === '2')) {
             event.preventDefault();
             alert("Por favor, selecione pelo menos uma opção de página.");
         }
