@@ -13,6 +13,17 @@ if(tem_erro.length != 0){
     quill.clipboard.dangerouslyPasteHTML(tem_erro.descricao)
 }
 
+if(tem_erro.em_cfmd == 2){
+    document.getElementById("labelfornaoconforme").checked = true;
+}
+else if(tem_erro.em_cfmd == 1){
+   document.getElementById("labelforconforme").checked = true;
+
+}
+else if(tem_erro.em_cfmd == 3){
+    document.getElementById("labelfornaoseaplicaconforme").checked = true;
+}
+
 
 
 document.querySelector(".adicionar_imagem").addEventListener('click',()=>{

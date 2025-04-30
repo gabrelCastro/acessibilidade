@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="iconeVoltarGrupo">
-            <a href="/" class="iconeVoltarGrupo"><span class="material-symbols-outlined" data-cy="sair">logout</span>Ir para Avaliações</a>
+            <a href="/erro" class="iconeVoltarGrupo"><span class="material-symbols-outlined" data-cy="sair">logout</span>Ir para Avaliações</a>
         </div>
         <h1>ADICIONAR ERRO DE ACESSIBILIDADE</h1>
         <div class="iconeVoltarGrupo"></div>
@@ -39,11 +39,11 @@
         <div class="opcoesAvaliacaocheckComTitulo">
         <h1>O SITE SEGUE AS RECOMENDAÇÕES?</h1>
         <div class="opcoesAvaliacaocheck">
-            <input name="opcao" checked value=1 type="radio">
+            <input id="labelforconforme" name="opcao" checked value=1 type="radio">
             <label for="conforme">SIM</label>
-            <input name="opcao" value=2 type="radio">
+            <input id="labelfornaoconforme" name="opcao" value=2 type="radio">
             <label for="naoConforme">NÃO</label>
-            <input name="opcao" value=3 type="radio">
+            <input id="labelfornaoseaplicaconforme" name="opcao" value=3 type="radio">
             <label for="naoAplicavel">NÃO SE APLICA</label>
         </div>
     </div>
