@@ -96,7 +96,7 @@ function demanda_expandir(){
             botaoBusca.addEventListener("click", function () {
                 let termo = inputPesquisa.value.toLowerCase();
                 let itensChecklist = document.querySelectorAll(".itemChecklist");
-        
+                console.log(itensChecklist);
                 if (itensChecklist.length === 0) {
                     console.warn("Nenhum item encontrado para busca.");
                     return;
@@ -104,7 +104,6 @@ function demanda_expandir(){
         
                 itensChecklist.forEach(item => {
                     let descricaoElemento = item.querySelector(".descricaoItem");
-        
                     if (descricaoElemento) {
                         let descricao = descricaoElemento.textContent.toLowerCase();
         

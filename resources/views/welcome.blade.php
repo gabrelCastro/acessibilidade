@@ -203,7 +203,7 @@
                                     <div class="oitemConteudo">
                                         <div class="informacoesDoItem">
                                             <h1>ITEM</h1>
-                                            <p>{{$itemChecklist->descricao}}</p>
+                                            <p class="descricaoItem">{{$itemChecklist->descricao}}</p>
                                             <h2>CRITÉRIO(S) WCAG</h2>
                                             @foreach ($itemChecklist->criterios as $criterio)
                                             <p>{{$criterio->codigo}} ({{$criterio->conformidade}}): {{$criterio->nome}}</p>
