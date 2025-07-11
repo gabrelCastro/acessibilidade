@@ -95,6 +95,40 @@ A parte da esquerda se refere à avaliação de acessibilidade e a da direita ao
 
 https://www.youtube.com/watch?v=rWBHdNg6N3Q
 
+### Estrutura Central da Ferramenta
+
+O funcionamento da AcessaWeb é centrado em uma entidade chamada **Avaliação**. Cada "Avaliação" que você cria na ferramenta corresponde a um site específico que será analisado. Dentro de cada Avaliação, existem duas seções principais que podem ser usadas de forma conjunta ou separada:
+
+1.  **Avaliação guiada por diretrizes** 
+2.  **Testes com usuários** 
+
+Para garantir a segurança e a integridade dos dados, cada Avaliação criada é protegida por uma senha específica definida pelo usuário.
+
+---
+
+### 1. Funcionalidades da "Avaliação Guiada por Diretrizes"
+
+Esta seção foi projetada para realizar uma verificação metódica da conformidade de um site com normas de acessibilidade.
+
+* **Escolha das Diretrizes**: O avaliador pode escolher basear sua análise nas diretrizes da **WCAG** (Web Content Accessibility Guidelines) ou na norma técnica brasileira **ABNT NBR 17225**.
+* **Classificação de Critérios**: Para cada critério de sucesso da diretriz escolhida, o avaliador atribui uma das três classificações:
+    * **Em conformidade**: O site atende à recomendação.
+    * **Não conformidade**: O site possui elementos que violam a recomendação. Ao selecionar esta opção, a ferramenta solicita que o avaliador descreva o problema, liste as páginas onde ele ocorre e anexe imagens que ilustrem a falha.
+    * **Não se aplica**: O critério não é relevante para o site em análise (por exemplo, um critério sobre textos alternativos em um site que não possui imagens).
+* **Filtros de Acompanhamento**: Para facilitar a organização, a ferramenta oferece filtros que permitem visualizar os critérios por status (ex: "Não Avaliado", "Em não conformidade"), ajudando a acompanhar o progresso da avaliação.
+
+### 2. Funcionalidades da Seção "Testes com Usuários"
+
+Esta área é voltada para o gerenciamento de testes de usabilidade e acessibilidade com participantes.
+
+* **Organização por Tarefas**: A avaliação é estruturada com base em **tarefas** que os participantes devem executar no site, como "Criar uma conta", "Recuperar sua senha" ou "Colocar um produto no carrinho de compras".
+* **Sessões de Teste**: Cada teste realizado com um participante diferente é registrado em uma **"sessão de teste"** individual. Dentro de cada sessão, o avaliador documenta o desempenho do usuário em cada tarefa, anotando se ele conseguiu completá-la, suas dificuldades e outras observações.
+* **Cadastro de Problemas**: A ferramenta possui um módulo específico para registrar os problemas de interação encontrados durante as sessões.
+    * Cada problema registrado inclui um título e uma descrição detalhada.
+    * Os problemas podem ser associados a uma ou mais tarefas nas quais foram observados. Exemplos de problemas incluem campos de formulário sem rótulos acessíveis ou elementos que só funcionam com o mouse e não com o teclado.
+
+Em resumo, a AcessaWeb funciona como um ambiente centralizado que organiza todo o fluxo de uma auditoria de acessibilidade, desde a verificação técnica baseada em normas até o registro e análise de dificuldades práticas enfrentadas por usuários reais.
+
 ---
 
 # Como realizar os testes atraves do cypress
